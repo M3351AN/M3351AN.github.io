@@ -73,8 +73,8 @@ const commands = {
 	}
 }
 
-var prephraseRoot = '<span class="red">root@yuuki.group</span>:<span class="blue">~</span># ';
-var prephrase = '<span class="red">visitor@yuuki.group</span>:<span class="blue">~</span># ';
+var prephraseRoot = '<span class="red">root@teiku.moe</span>:<span class="blue">~</span># ';
+var prephrase = '<span class="red">visitor@teiku.moe</span>:<span class="blue">~</span># ';
 
 var form = $('<div style="width: 100%;display: table"><div style="display: table-cell; width: 1%">' + prephrase + '</div>&nbsp<form id="form" style="display: table-cell; width :100%"><input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="tCommand" type="text" maxlength="48" class="nostyle" autofocus /></form></div>').appendTo('#content');
 
@@ -87,7 +87,7 @@ function OnlyRoot(command) {
 function launchCommandAsRoot(command) 
 {
 	var res = '';
-	if (command === './welcome.sh') res = 'Welcome to <span class="red">yuuki.group</span>!<br>You can vist my blogs at <span class="red"><a href="http://ame.yuuki.group" target="_blank"><u>ame.yuuki.group</u></span><br><br>You\'re visiting from: <span class="red">' + visitorCountry + '</span><br>Last 5 Country Visits: <span class="red">' + lastCountry0 + '</span>, <span class="red">' + lastCountry1 + '</span>, <span class="red">' + lastCountry2 + '</span>, <span class="red">' + lastCountry3 + '</span>, <span class="red">' + lastCountry4 + '</span>.<br>Total Visits: <span class="red">' + visits + '</span><br>Terminal Updated: <span class="red">' + lastUpdate +'</span><br><br><b>Type \'help\' for more details on the commands</b>'
+	if (command === './welcome.sh') res = 'Welcome to <span class="red">teiku.moe</span>!<br>You can vist my blogs at <span class="red"><a href="http://teikumo.loveslife.biz" target="_blank"><u>ame.yuuki.group</u></span><br><br>You\'re visiting from: <span class="red">' + visitorCountry + '</span><br>Last 5 Country Visits: <span class="red">' + lastCountry0 + '</span>, <span class="red">' + lastCountry1 + '</span>, <span class="red">' + lastCountry2 + '</span>, <span class="red">' + lastCountry3 + '</span>, <span class="red">' + lastCountry4 + '</span>.<br>Total Visits: <span class="red">' + visits + '</span><br>Terminal Updated: <span class="red">' + lastUpdate +'</span><br><br><b>Type \'help\' for more details on the commands</b>'
 	else
 	{
 		window.alert("Nice try to changing \'root\' variable to 1");
@@ -161,7 +161,7 @@ $('form').on('submit', function(e) {
 				} else {
 					launchCommandAsVisitor({
 						cmd: vInput,
-						res: '<div><p>yuuki.group: ' + vInput + ': No such file or directory</p></div>'
+						res: '<div><p>teiku.moe: ' + vInput + ': No such file or directory</p></div>'
 					});
 				}
 			} else if (vInput.startsWith("cd ") || vInput === "cd" || vInput.startsWith("mkdir ") || vInput === "mkdir" || vInput.startsWith("touch ") || vInput === "touch" || vInput.startsWith("rm ") || vInput === "rm" || vInput === "ls") {
@@ -182,7 +182,7 @@ $('form').on('submit', function(e) {
 							res = '';
 						}
 					} else {
-						res = 'yuuki.group: No passwd entry for user ' + loginArray[2] + '';
+						res = 'teiku.moe: No passwd entry for user ' + loginArray[2] + '';
 					}
 					launchCommandAsVisitor({
 						cmd: loginArray[0] + ' ' + loginArray[2],
@@ -236,7 +236,7 @@ $('form').on('submit', function(e) {
 				} else {
 					launchCommandAsVisitor({
 						cmd: vInput,
-						res: '<div><p>[ <span class="red">yuuki.group</span> ] Usage: music [play/stop/link]</p></div>'
+						res: '<div><p>[ <span class="red">teiku.moe</span> ] Usage: music [play/stop/link]</p></div>'
 					});
 				}
 			} /*else if (vInput.startsWith("friend")) {
@@ -255,7 +255,7 @@ $('form').on('submit', function(e) {
 				} else {
 					launchCommandAsVisitor({
 						cmd: vInput,
-						res: '<div><p>[ <span class="red">yuuki.group</span> ] Usage: friend [name/list]</p></div>'
+						res: '<div><p>[ <span class="red">teiku.moe</span> ] Usage: friend [name/list]</p></div>'
 					});
 				}
 			}*/ else if (vInput.startsWith("insta")) {
@@ -285,7 +285,7 @@ $('form').on('submit', function(e) {
 				const Disk = '3M';
 				launchCommandAsVisitor({
 						cmd: $('input').val(),
-						res: '<div><p><span class="red">visitor@yuuki.group</span><br><span class="red">OS:</span> yuuki.group ' + OSVer + '<br><span class="red">Kernel:</span> ' + Kernel + '<br><span class="red">Uptime:</span> ' + upTime + '<br><span class="red">Shell:</span> ' + Shell + '<br><span class="red">Disk:</span> ' + Disk + '</p></div>'
+						res: '<div><p><span class="red">visitor@teiku.moe</span><br><span class="red">OS:</span> teiku.moe ' + OSVer + '<br><span class="red">Kernel:</span> ' + Kernel + '<br><span class="red">Uptime:</span> ' + upTime + '<br><span class="red">Shell:</span> ' + Shell + '<br><span class="red">Disk:</span> ' + Disk + '</p></div>'
 					});
 			} else if (vInput.trim() !== "") {
 				launchCommandAsVisitor(commands[vInput]);
@@ -295,12 +295,12 @@ $('form').on('submit', function(e) {
 		if (root > 0) {
 			launchCommandAsRoot({
 				cmd: $('input').val(),
-				res: '<div><p>yuuki.group: ' + $('input').val() + ': command not found</p></div>'
+				res: '<div><p>teiku.moe: ' + $('input').val() + ': command not found</p></div>'
 			});
 		} else {
 			launchCommandAsVisitor({
 				cmd: $('input').val(),
-				res: '<div><p>yuuki.group: ' + $('input').val() + ': command not found</p></div>'
+				res: '<div><p>teiku.moe: ' + $('input').val() + ': command not found</p></div>'
 			});
 		}
 		if($('input').val() === 'clear') {
