@@ -87,7 +87,7 @@ function OnlyRoot(command) {
 function launchCommandAsRoot(command) 
 {
 	var res = '';
-	if (command === './welcome.sh') res = 'Welcome to <span class="red">teiku.moe</span>!<br>You can vist my blogs at <span class="red"><a href="http://teikumo.loveslife.biz" target="_blank"><u>ame.yuuki.group</u></span><br><br>You\'re visiting from: <span class="red">' + visitorCountry + '</span><br>Last 5 Country Visits: <span class="red">' + lastCountry0 + '</span>, <span class="red">' + lastCountry1 + '</span>, <span class="red">' + lastCountry2 + '</span>, <span class="red">' + lastCountry3 + '</span>, <span class="red">' + lastCountry4 + '</span>.<br>Total Visits: <span class="red">' + visits + '</span><br>Terminal Updated: <span class="red">' + lastUpdate +'</span><br><br><b>Type \'help\' for more details on the commands</b>'
+	if (command === './welcome.sh') res = 'Welcome to <span class="red">teiku.moe</span>!<br>You can vist my blogs at <span class="red"><a href="http://yuuki.group" target="_blank"><u>yuuki.group</u></span><br><br>You\'re visiting from: <span class="red">' + visitorCountry + '</span><br>Last 5 Country Visits: <span class="red">' + lastCountry0 + '</span>, <span class="red">' + lastCountry1 + '</span>, <span class="red">' + lastCountry2 + '</span>, <span class="red">' + lastCountry3 + '</span>, <span class="red">' + lastCountry4 + '</span>.<br>Total Visits: <span class="red">' + visits + '</span><br>Terminal Updated: <span class="red">' + lastUpdate +'</span><br><br><b>Type \'help\' for more details on the commands</b>'
 	else
 	{
 		window.alert("Nice try to changing \'root\' variable to 1");
