@@ -40,7 +40,7 @@ var sMonth = [
     "December",
 ]
 const commands = {
-	<span class="red"><a href="https://steamcommunity.com/id/M3351AN/" target="_blank"><u>Steam</u></a></span>
+
 	luv:
 	{
 		cmd:'\x6b\x65\x74\x69\x6e\x67',
@@ -49,7 +49,7 @@ const commands = {
       diary:
 	{
 		cmd:'diary',
-		res:'<span class="red"><a href="diray.html" target="_blank"><u>diary/u></a></span>'
+		res:'<span class="red"><a href="diary.html" target="_blank"><u>diary</u></a></span>'
 	},
 	aboutme: 
 	{
