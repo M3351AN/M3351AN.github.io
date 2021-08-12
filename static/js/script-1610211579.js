@@ -40,11 +40,16 @@ var sMonth = [
     "December",
 ]
 const commands = {
-	
+	<span class="red"><a href="https://steamcommunity.com/id/M3351AN/" target="_blank"><u>Steam</u></a></span>
 	luv:
 	{
 		cmd:'\x6b\x65\x74\x69\x6e\x67',
 		res:'\x49 \x6c\x75\x76 \x75\x2e'
+	},
+      diary:
+	{
+		cmd:'diary',
+		res:'<span class="red"><a href="diray.html" target="_blank"><u>diary/u></a></span>'
 	},
 	aboutme: 
 	{
@@ -87,7 +92,7 @@ function OnlyRoot(command) {
 function launchCommandAsRoot(command) 
 {
 	var res = '';
-	if (command === './welcome.sh') res = 'Welcome to <span class="red">teiku.moe</span>!<br>You can vist my blogs at <span class="red"><a href="http://yuuki.group" target="_blank"><u>yuuki.group</u></span><br><br>You\'re visiting from: <span class="red">' + visitorCountry + '</span><br>Last 5 Country Visits: <span class="red">' + lastCountry0 + '</span>, <span class="red">' + lastCountry1 + '</span>, <span class="red">' + lastCountry2 + '</span>, <span class="red">' + lastCountry3 + '</span>, <span class="red">' + lastCountry4 + '</span>.<br>Total Visits: <span class="red">' + visits + '</span><br>Terminal Updated: <span class="red">' + lastUpdate +'</span><br><br><b>Type \'help\' for more details on the commands</b>'
+	if (command === './welcome.sh') res = 'Welcome to <span class="red">teiku.moe</span>!<br>You can vist my diray by command diary<br><br>You\'re visiting from: <span class="red">' + visitorCountry + '</span><br>Last 5 Country Visits: <span class="red">' + lastCountry0 + '</span>, <span class="red">' + lastCountry1 + '</span>, <span class="red">' + lastCountry2 + '</span>, <span class="red">' + lastCountry3 + '</span>, <span class="red">' + lastCountry4 + '</span>.<br>Total Visits: <span class="red">' + visits + '</span><br>Terminal Updated: <span class="red">' + lastUpdate +'</span><br><br><b>Type \'help\' for more details on the commands</b>'
 	else
 	{
 		window.alert("Nice try to changing \'root\' variable to 1");
