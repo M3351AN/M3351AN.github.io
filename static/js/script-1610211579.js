@@ -54,7 +54,7 @@ const commands = {
 	aboutme: 
 	{
 		cmd: 'aboutme',
-		res: 'About Me:<br># <span class="red">Real Name:</span> Wau Yuuki<br># <span class="red">Nick Name:</span> Yuuki|M3351AN|Crespy|渟雲 etc. <br># <span class="red">Born:</span> ' + sMonth["3"] + ' 11 2K06 <span class="red">(Age: ' + GetAge("2006-04-11") + ')</span><br># <span class="red">Country:</span> China<br><br>Bio:<br># <span class="red">Programming:</span> HTML, CSS, JS, LUA, C++.<br># <span class="red">Languages:</span><br>- Chinese <span class="red">(National)</span><br>- English <span class="red">(Intermediate)</span><br>- Indonesian <span class="red">(Employees at IndiHomePaket)</span><br>- Japanese <span class="red">(Basic)</span><br>- Cantonese <span class="red">(Hometown)</span><br>- Vietnamese <span class="red">(Neighbor)</span>'
+		res: 'About Me:<br># <span class="red">Real Name:</span> Wau Yuuki<br># <span class="red">Nick Name:</span> Yuuki|M3351AN|Crespy|渟雲 etc. <br># <span class="red">Born:</span> ' + sMonth["3"] + ' 11 2K06 <span class="red">(Age: ' + GetAge("2006-04-11") + ')</span><br># <span class="red">Country:</span> Born in China, live in Mongolia<br><br>Bio:<br># <span class="red">Programming:</span> HTML, CSS, JS, LUA, C++.<br># <span class="red">Languages:</span><br>- Chinese <span class="red">(National)</span><br>- Mongolian(Cyrillic only) <span class="red">(Common)</span><br>- English <span class="red">(Intermediate)</span><br>- Indonesian <span class="red">(Employees at IndiHomePaket)</span><br>- Japanese <span class="red">(Basic)</span><br>- Cantonese <span class="red">(Hometown)</span><br>- Vietnamese <span class="red">(Neighbor)</span>'
 	},
 	links: 
 	{
