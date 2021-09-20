@@ -46,10 +46,15 @@ const commands = {
 		cmd:'\x6b\x65\x74\x69\x6e\x67',
 		res:'\x49 \x6c\x75\x76 \x75\x2e'
 	},
-      diary:
+      	diary:
 	{
 		cmd:'diary',
-		res:'<span class="red"><a href="diary.html" target="_blank"><u>diary</u></a></span>'
+		res:'<span class="red"><a href="https://raw.githubusercontent.com/M3351AN/db/main/diary" target="_blank"><u>diary</u></a></span>'
+	},
+	database:
+	{
+		cmd:'database',
+		res:'<span class="red"><a href="database.html" target="_blank"><u>database</u></a></span>'
 	},
 	aboutme: 
 	{
@@ -92,7 +97,7 @@ function OnlyRoot(command) {
 function launchCommandAsRoot(command) 
 {
 	var res = '';
-	if (command === './welcome.sh') res = 'Welcome to <span class="red">teiku.moe</span>!<br>You can vist my diray by command diary<br><br>You\'re visiting from: <span class="red">' + visitorCountry + '</span><br>Last 5 Country Visits: <span class="red">' + lastCountry0 + '</span>, <span class="red">' + lastCountry1 + '</span>, <span class="red">' + lastCountry2 + '</span>, <span class="red">' + lastCountry3 + '</span>, <span class="red">' + lastCountry4 + '</span>.<br>Total Visits: <span class="red">' + visits + '</span><br>Terminal Updated: <span class="red">' + lastUpdate +'</span><br><br><b>Type \'help\' for more details on the commands</b>'
+	if (command === './welcome.sh') res = 'Welcome to <span class="red">teiku.moe</span>!<br>You can get my cfg/tool/sources by command <span class="red">database</span><br>or just rad my diaries via <span class="red">diary</span><br><br>You\'re visiting from: <span class="red">' + visitorCountry + '</span><br>Last 5 Country Visits: <span class="red">' + lastCountry0 + '</span>, <span class="red">' + lastCountry1 + '</span>, <span class="red">' + lastCountry2 + '</span>, <span class="red">' + lastCountry3 + '</span>, <span class="red">' + lastCountry4 + '</span>.<br>Total Visits: <span class="red">' + visits + '</span><br>Terminal Updated: <span class="red">' + lastUpdate +'</span><br><br><b>Type \'help\' for more details on the commands</b>'
 	else
 	{
 		window.alert("Nice try to changing \'root\' variable to 1");
