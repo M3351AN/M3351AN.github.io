@@ -43,7 +43,7 @@ const commands = {
 
 	luv:
 	{
-		cmd:'\x6b\x65\x74\x69\x6e\x67',
+		cmd:'luv',
 		res:'\x49 \x6c\x75\x76 \x75\x2e'
 	},
       	diary:
