@@ -198,7 +198,7 @@ input.nostyle, button.nostyle, textarea.nostyle {
 }
 
 body {
-	background: url(https://cdn.teiku.moe/for_teiku.moe/BG.jpg);
+	background: url(https://teiku.moe/static/image/BG1.jpg);
 	background-position: center;
 	background-size: cover;
 	color: white;
