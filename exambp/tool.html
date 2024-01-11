@@ -21,7 +21,7 @@
             // 提取链接中的pwd
             ciphertext = ciphertext.replace("https://exam.kernelsu.org/?pwd=", ""); 
             // 调用decrypt函数解密密文
-            var plaintext = Tea.decrypt(ciphertext, 20221209);
+            var plaintext = Tea.decrypt(ciphertext, tbxltOp8INJKgWpDgo);
             // 将密码输出到明文输入框中
             document.getElementById("plaintext").value = plaintext.substring(0, 13);
         }
