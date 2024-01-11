@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title>Bypass tool</title>
+    <style>
+        /* 你可以在这里修改网页的样式 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input, button {
+            font-size: 16px;
+        }
+        #ciphertext, #plaintext {
+            width: 80%;
+        }
+    </style>
+    <script src="js/crypto.js"></script>
+    <script>
+        // 你可以在这里修改网页的逻辑
+        function decrypt() {
+            // 获取密文输入框的值
+            var ciphertext = document.getElementById("ciphertext").value;
+            // 调用decrypt函数解密密文，密码为"secret"
+            var plaintext = Tea.decrypt(ciphertext, "20221209");
+            // 将明文输出到明文输入框中
+            document.getElementById("plaintext").value = plaintext;
+        }
+    </script>
+</head>
+<body>
+    <p>请输入密文，然后点击解密按钮，得到明文。</p>
+    <p>密文：<input type="text" id="ciphertext" /></p>
+    <p>明文：<input type="text" id="plaintext" readonly /></p>
+    <p><button onclick="decrypt()">解密</button></p>
+</body>
+</html>
