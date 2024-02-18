@@ -1,0 +1,27 @@
+import board
+import digitalio
+import random
+import time
+
+# 创建GP16和GP21的数字输入输出对象
+button = digitalio.DigitalInOut(board.GP16)
+button.direction = digitalio.Direction.INPUT
+button.pull = digitalio.Pull.UP
+
+led = digitalio.DigitalInOut(board.GP21)
+led.direction = digitalio.Direction.OUTPUT
+
+# 无限循环
+while True:
+    # 如果GP16通电，即按钮按下
+    if not button.value:
+        # 随机生成一个16~51毫秒之间的时间间隔
+        interval = random.randint(16, 51) / 1000
+        # 让LED灯在该时间间隔内闪烁一次
+        led.value = True
+        time.sleep(interval)
+        led.value = False
+        time.sleep(interval)
+    # 否则，让LED灯熄灭
+    else:
+        led.value = False
