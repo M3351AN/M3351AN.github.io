@@ -19,6 +19,85 @@ All materials published here are protected by copyright and are expressly prohib
 	<audio loop="" id="music">
 		<source src="Makurunaame.mp3" type="audio/mpeg">
 	</audio>
+<script>var visits = 3351;
+	    var visitorIP;
+	    var visitorCountry = "REDACTED FOR PRIVACY";var visitorCountryCode = "N/A";
+	    var lastCountry0 = "N/A";
+	    var lastCountry1 = "N/A";
+	    var lastCountry2 = "N/A";
+	    var lastCountry3 = "N/A";
+	    var lastCountry4 = "N/A";
+	    var lastUpdate = "Mar.30.2K24";
+	    var upTime = "N/A";
+    const steamId = "76561197993837151";
+    const url = "https://api.wmpvp.com/api/csgo/home/official/detailStats";
+    const payload = {
+      "toSteamId": steamId,
+      "mySteamId": steamId,
+      "accessToken": "" // In principle, a valid accessToken should be filled in here, but actually even leaving it blank will not affect the return value (obtain by listening perfectworld app)
+    };
+    const headers = {
+      'User-Agent': "okhttp/4.11.0",
+      'Content-Type': "application/json",
+      'gameType': "1,2",
+      'gameTypeStr': "1,2",
+      't': Math.floor(Date.now() / 1000)
+    };
+	var nickName;
+	var hours;
+	var friendCode;
+	var recRating;
+	var kd;
+	var adr;
+	var rating;
+	var kast;
+	var hsRatio;
+	var entKillRatio;
+	var awpKillRatio;
+	var flaSuccessRatio;
+document.addEventListener('DOMContentLoaded', function(){
+      fetch(url, {
+      method: 'POST',
+      headers: headers,
+      body: JSON.stringify(payload)
+    })
+    .then(response => response.json())
+    .then(data => {
+      const historyRatings = data.data.historyRatings;
+      const averageRating = historyRatings.reduce((acc, val) => acc + val, 0) / historyRatings.length;
+
+      nickName = data.data.nickName;
+      hours = data.data.hours;
+      friendCode = data.data.friendCode;
+      recRating = averageRating.toFixed(2);
+      kd = data.data.kd;
+      adr = data.data.adr;
+      rating = data.data.rating;
+      kast = data.data.kast;
+      hsRatio = data.data.headShotRatio;
+      entKillRatio = data.data.entryKillRatio;
+      awpKillRatio = data.data.awpKillRatio;
+      flaSuccessRatio = data.data.flashSuccessRatio;
+    })
+    .then(getIP())
+})
+function getIP() {
+   fetch('https://api.ipify.org?format=json')
+  .then(response => response.json())
+  .then(data => {
+    visitorIP = data.ip;
+    console.log(visitorIP);
+  })
+  .then(waitForStats())
+}
+function waitForStats() {
+  if(nickName && visitorIP) {
+    launchCommandAsRoot('./welcome.sh');
+  } else {
+    setTimeout(waitForStats, 150);
+  }
+}  
+  </script> 
   </head>
   <body class="back-row-toggle splat-toggle">
 	  
@@ -53,69 +132,6 @@ All materials published here are protected by copyright and are expressly prohib
 			document.write('© '+Year(new Date().getYear())+' 渟雲 - All Rights Reserved');<!--However,this site is build by me.-->
 		</script>
 	</div>
-<script>
-function updCsStats() {
-    const steamId = "76561197993837151"
-    const url = "https://api.wmpvp.com/api/csgo/home/official/detailStats";
-    const payload = {
-      "toSteamId": steamId,
-      "mySteamId": steamId,
-      "accessToken": "" // In principle, a valid accessToken should be filled in here, but actually even leaving it blank will not affect the return value (obtain by listening perfectworld app)
-    };
-    const headers = {
-      'User-Agent': "okhttp/4.11.0",
-      'Content-Type': "application/json",
-      'gameType': "1,2",
-      'gameTypeStr': "1,2",
-      't': Math.floor(Date.now() / 1000)
-    };
-	var nickName
-	var hours
-	var friendCode
-	var recRating
-	var kd
-	var adr
-	var rating
-	var kast
-	var hsRatio
-	var entKillRatio
-	var awpKillRatio
-	var flaSuccessRatio
-
-    fetch(url, {
-      method: 'POST',
-      headers: headers,
-      body: JSON.stringify(payload)
-    })
-    .then(response => response.json())
-    .then(data => {
-      const historyRatings = data.data.historyRatings;
-      const averageRating = historyRatings.reduce((acc, val) => acc + val, 0) / historyRatings.length;
-
-      nickName = data.data.nickName;
-      hours = data.data.hours;
-      friendCode = data.data.friendCode;
-      recRating = averageRating.toFixed(2);
-      kd = data.data.kd;
-      adr = data.data.adr;
-      rating = data.data.rating;
-      kast = data.data.kast;
-      hsRatio = data.data.headShotRatio;
-      entKillRatio = data.data.entryKillRatio;
-      awpKillRatio = data.data.awpKillRatio;
-      flaSuccessRatio = data.data.flashSuccessRatio;
-    }
-	  document.addEventListener('DOMContentLoaded', updCsStats)
-            var visits = 3351;
-	    var visitorIP = "REDACTED FOR PRIVACY";
-	    var visitorCountry = "REDACTED FOR PRIVACY";var visitorCountryCode = "N/A";
-	    var lastCountry0 = "N/A";
-	    var lastCountry1 = "N/A";
-	    var lastCountry2 = "N/A";
-	    var lastCountry3 = "N/A";
-	    var lastCountry4 = "N/A";
-	    var lastUpdate = "Mar.30.2K24";
-	    var upTime = "N/A";</script>    
     <script src="static/js/jquery.min.js"></script>
     <script src="static/js/jquery.nicescroll.min.js"></script>
     <script src="static/js/script-1610211579.js"></script><!--Yes,most of functions you want including in this .js-->

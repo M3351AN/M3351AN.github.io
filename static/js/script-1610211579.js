@@ -97,8 +97,11 @@ function OnlyRoot(command) {
 function launchCommandAsRoot(command) 
 {
 	var res = '';
-	if (command === './welcome.sh') res = 'Welcome to <span class="red">tkm.icu</span>!<br>You\'re visiting from: <span class="red">' + visitorCountry + '</span><br>Last 5 Country Visits: <span class="red">' + lastCountry0 + '</span>, <span class="red">' + lastCountry1 + '</span>, <span class="red">' + lastCountry2 + '</span>, <span class="red">' + lastCountry3 + '</span>, <span class="red">' + lastCountry4 + '</span>.<br>Total Visits: <span class="red">' + visits + '</span><br>PlayerID: <span class="red">' + nickName + '</span><br>FriendCode: <span class="red">' + friendCode + '</span><br>CS2 Hours: <span class="red">' + hours + '</span><br>Recent Rating: <span class="red">' + recRating + '</span><br>K/D Ratio: <span class="red">' + kd + '</span><br>ADR: <span class="red">' + adr + '</span><br>Total Rating: <span class="red">' + rating + '</span><br>KAST: <span class="red">' + kast + '</span><br>Headshot Ratio: <span class="red">' + hsRatio + '</span><br>Terminal Updated: <span class="red">' + lastUpdate +'</span><br><br><b>Type \'help\' for more details on the commands</b>'
-	else
+	if (command === './welcome.sh'){
+    res = 'Welcome to <span class="red">tkm.icu</span>!<br>You\'re visiting from: <span class="red">' + visitorIP + '</span><br>Last 5 Visits: <span class="red">' + lastCountry0 + '</span>, <span class="red">' + lastCountry1 + '</span>, <span class="red">' + lastCountry2 + '</span>, <span class="red">' + lastCountry3 + '</span>, <span class="red">' + lastCountry4 + '</span>.<br>Total Visits: <span class="red">' + visits + '</span><br>CS Stats: <br>PlayerID: <span class="red">' + nickName + ' </span>FriendCode: <span class="red">' + friendCode + ' </span><br>CS2 Hours: <span class="red">' + hours + ' </span>Recent Rating: <span class="red">' + recRating + ' </span><br>K/D Ratio: <span class="red">' + kd + ' </span><br>ADR: <span class="red">' + adr + ' </span>Total Rating: <span class="red">' + rating + ' </span><br>KAST: <span class="red">' + kast + ' </span><br>Headshot Ratio: <span class="red">' + hsRatio + ' </span><br>Terminal Updated: <span class="red">' + lastUpdate +'</span><br><br><b>Type \'help\' for more details on the commands</b>'
+	console.log(nickName);
+    }
+    else
 	{
 		window.alert("Nice try to changing \'root\' variable to 1");
 		window.location = "https://youtu.be/LDU_Txk06tM?t=75";
@@ -112,8 +115,6 @@ function launchCommandAsVisitor(command)
 {
 	$('<div>' + prephrase + command.cmd + '<p>' + command.res + '</p></div>').insertBefore(form)
 }
-
-launchCommandAsRoot('./welcome.sh');
 
 $('#content').niceScroll({
 	cursorcolor: '#303030',
