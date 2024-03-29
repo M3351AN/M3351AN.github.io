@@ -199,7 +199,7 @@ input.nostyle, button.nostyle, textarea.nostyle {
 
 body {
 	background: url("https://s2.loli.net/2024/03/30/iANKz1rb6MBSHaJ.jpg");
-	background-position: center;
+	background-position: left center;
 	background-size: cover;
 	color: white;
 }
@@ -210,32 +210,14 @@ body {
 	z-index: 100;
 }
 #terminal {
-	min-height: 350px;
-	width: 650px;
+	min-height: 600px;
+	width: 800px;
 	max-width: 100%;
 	max-height: 100%;
 	background: rgba(29, 31, 32, 0.85);
 	border-radius: .3rem;
 	box-shadow: 0 20px 60px 10px rgba(0, 0, 0, 0.5);
 	position: relative;
-}
-@media screen and (max-width: 480px) {
-	body {
-	background: url("https://s2.loli.net/2024/03/30/oRdpLKtS6VyPX5J.jpg");
-	background-position: left;
-	background-size: cover;
-	color: white;
-	}
-        #terminal {
-	min-height: 520px;
-	width: 450px;
-	max-width: 100%;
-	max-height: 100%;
-	background: rgba(29, 31, 32, 0.85);
-	border-radius: .3rem;
-	box-shadow: 0 20px 60px 10px rgba(0, 0, 0, 0.5);
-	position: relative;
-}
 }
 #terminal-header {
 	-webkit-touch-callout: none;
