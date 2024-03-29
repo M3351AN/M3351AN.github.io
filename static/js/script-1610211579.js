@@ -24,7 +24,7 @@ var MD5 = function(d){result = M(V(Y(X(d),8*d.length)));return result.toLowerCas
 var pMusic = document.getElementById("music");
 pMusic.volume = 0.5;
 pMusic.load();
-var pMusicPlaying = 1;
+var pMusicPlaying = 0;
 var sMonth = [
     "January",
     "February",
