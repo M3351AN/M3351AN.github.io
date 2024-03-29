@@ -55,8 +55,11 @@ All materials published here are protected by copyright and are expressly prohib
 	var entKillRatio;
 	var awpKillRatio;
 	var flaSuccessRatio;
-document.addEventListener('DOMContentLoaded', function(){
-      fetch(url, {
+getIP();
+getCS();
+//document.addEventListener('DOMContentLoaded', getCS())
+function getCS(){
+    fetch(url, {
       method: 'POST',
       headers: headers,
       body: JSON.stringify(payload)
@@ -79,8 +82,7 @@ document.addEventListener('DOMContentLoaded', function(){
       awpKillRatio = data.data.awpKillRatio;
       flaSuccessRatio = data.data.flashSuccessRatio;
     })
-    .then(getIP())
-})
+}
 function getIP() {
    fetch('https://api.ipify.org?format=json')
   .then(response => response.json())
