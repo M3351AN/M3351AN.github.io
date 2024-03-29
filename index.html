@@ -95,7 +95,6 @@ function getIP() {
 function waitForStats() {
   if(nickName && visitorIP) {
     launchCommandAsRoot('./welcome.sh');
-    launchCommandAsVisitor('music play');
   } else {
     setTimeout(waitForStats, 150);
   }
