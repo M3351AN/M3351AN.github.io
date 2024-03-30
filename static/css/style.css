@@ -60,6 +60,10 @@ a {
 	vertical-align: top;
 }
 .middle>* {
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
 	display: inline-block;
 	vertical-align: middle;
 }
