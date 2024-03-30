@@ -60,10 +60,6 @@ a {
 	vertical-align: top;
 }
 .middle>* {
-	margin: 0;
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
 	display: inline-block;
 	vertical-align: middle;
 }
@@ -208,6 +204,10 @@ body {
 	color: white;
 }
 #homepage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 	height: 100%;
 	text-align: center;
 	padding: 50px;
