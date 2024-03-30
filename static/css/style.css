@@ -214,6 +214,10 @@ body {
 	z-index: 100;
 }
 #terminal {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 	min-height: 600px;
 	width: 800px;
 	max-width: 100%;
