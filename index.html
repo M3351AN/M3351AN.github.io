@@ -58,6 +58,7 @@ All materials published here are protected by copyright and are expressly prohib
 	var flaSuccessRatio;
 getIP();
 getCS();
+waitForStats();
 //document.addEventListener('DOMContentLoaded', getCS())
 function getCS(){
     fetch(url, {
@@ -92,7 +93,6 @@ function getIP() {
     visitorIP = data.ip;
     console.log(visitorIP);
   })
-  .then(waitForStats())
 }
 function waitForStats() {
   if(nickName && visitorIP) {
