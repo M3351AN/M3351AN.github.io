@@ -287,3 +287,27 @@ body {
 	margin: 0 auto;
 	z-index: -18;
 } 
+
+.app-container {
+  margin: 10px; /* 设置外边距 */
+  display: inline-block; /* 使div并排显示 */
+}
+
+.app-icon-link img {
+  width: 100px;
+  height: 100px; 
+  border: none; 
+  outline: none; 
+  border-radius: 15px; 
+}
+
+.app-icon-link:hover img {
+  opacity: 0.8; 
+}
+
+.app-name {
+  display: block; 
+  text-align: center; 
+  margin-top: 5px; 
+  color: black;
+}
