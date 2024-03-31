@@ -222,6 +222,7 @@ body {
 	max-height: 75%;
 	background: rgba(29, 31, 32, 0.55);
 	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
 	border-radius: .3rem;
 	box-shadow: 0 20px 60px 10px rgba(0, 0, 0, 0.33);
 	position: relative;
