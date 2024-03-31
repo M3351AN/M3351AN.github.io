@@ -396,7 +396,7 @@ body {
 
 .top-bar {
     height : 24px;
-    background-color: rgba(29, 31, 32, 0.95);
+    background-color: rgba(29, 31, 32, 0.75);
     color: white;
     display: flex;
     justify-content: center;
