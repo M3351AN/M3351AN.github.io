@@ -214,7 +214,9 @@ body {
 	z-index: 100;
 }
 #terminal {
-	min-height: 480px;
+	min-height: 240px;
+	min-width: 320px;
+	height: 480px;
 	width: 640px;
 	max-width: 75%;
 	max-height: 75%;
