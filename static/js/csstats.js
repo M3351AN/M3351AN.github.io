@@ -51,4 +51,5 @@ function getCS(){
       awpKillRatio = data.data.awpKillRatio;
       flaSuccessRatio = data.data.flashSuccessRatio;
     })
+	console.log(nickName);
 }
