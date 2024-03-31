@@ -358,3 +358,33 @@ body {
 .closebtn:hover {
   color: #ccc;
 }
+
+@keyframes slideIn {
+  0% {
+    right: -20px;
+    opacity: 0;
+  }
+  100% {
+    right: 20px;
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    right: 20px;
+    opacity: 1;
+  }
+  100% {
+    right: -20px;
+    opacity: 0;
+  }
+}
+
+.notification.show {
+  animation: slideIn 0.5s cubic-bezier(0.75, 0.25, 0.25, 0.75) forwards;
+}
+
+.notification.hide {
+  animation: slideOut 0.5s cubic-bezier(0.75, 0.25, 0.25, 0.75) forwards;
+}
