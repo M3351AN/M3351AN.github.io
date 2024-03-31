@@ -214,14 +214,10 @@ body {
 	z-index: 100;
 }
 #terminal {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	min-height: 600px;
-	width: 800px;
-	max-width: 100%;
-	max-height: 100%;
+	min-height: 480px;
+	width: 640px;
+	max-width: 75%;
+	max-height: 75%;
 	background: rgba(29, 31, 32, 0.85);
 	border-radius: .3rem;
 	box-shadow: 0 20px 60px 10px rgba(0, 0, 0, 0.5);
