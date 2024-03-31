@@ -11,7 +11,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-WSD5KG7P');</script>
 <!-- End Google Tag Manager -->
-	  <script async src="//finicounter.eu.org/finicounter.js"></script>
 	  <meta name="google-adsense-account" content="ca-pub-4393302685242343">
 	  <meta http-equiv="Content-Type"content="text/html; charset=utf-8">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">                       
@@ -28,7 +27,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		<source src="Makurunaame.mp3" type="audio/mpeg">
 	</audio>
 <script src="static/js/csstats.js"></script>
-<script>var visits = 3351;
+<script>
+	    var visits;
 	    var visitorIP;
 	    var visitorCountry = "REDACTED FOR PRIVACY";var visitorCountryCode = "N/A";
 	    var lastCountry0 = "N/A";
@@ -39,11 +39,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	    var lastUpdate = "Mar.30.2K24";
 	    var upTime = "N/A";
 getCS();
+getVisits();
 waitForStats();
 //document.addEventListener('DOMContentLoaded', getCS())
-
+function getVisits() {
+   fetch('https://finicounter.eu.org/counter?host=tkm.icu')
+  .then(response => response.json())
+  .then(data => {
+    visits = data.views;
+    console.log(visits);
+  })
+}
+	
 function waitForStats() {
-  if(nickName && visitorIP) {
+  if(nickName && visitorIP && visits) {
     launchCommandAsRoot('./welcome.sh');
   } else {
     setTimeout(waitForStats, 150);
