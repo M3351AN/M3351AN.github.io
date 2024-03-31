@@ -402,4 +402,6 @@ body {
     justify-content: center;
     align-items: center;
     padding: 15px 15px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
