@@ -20,6 +20,7 @@ All materials published here are protected by copyright and are expressly prohib
 		<source src="Makurunaame.mp3" type="audio/mpeg">
 	</audio>
 <script src="static/js/csstats.js"></script>
+<script src="https://api64.ipify.org?format=jsonp&callback=getIP"></script>
 <script>var visits = 3351;
 	    var visitorIP;
 	    var visitorCountry = "REDACTED FOR PRIVACY";var visitorCountryCode = "N/A";
@@ -34,14 +35,11 @@ getIP();
 getCS();
 waitForStats();
 //document.addEventListener('DOMContentLoaded', getCS())
-function getIP() {
-   fetch('https://api64.ipify.org?format=json')
-  .then(response => response.json())
-  .then(data => {
-    visitorIP = data.ip;
+function getIP(json) {
+    visitorIP = json.ip;
     console.log(visitorIP);
-  })
 }
+
 function waitForStats() {
   if(nickName && visitorIP) {
     launchCommandAsRoot('./welcome.sh');
@@ -49,7 +47,8 @@ function waitForStats() {
     setTimeout(waitForStats, 150);
   }
 }  
-  </script> 
+  </script>
+
   </head>
   <body class="back-row-toggle splat-toggle" >
     <div class="rain front-row"></div>
