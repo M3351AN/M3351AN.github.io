@@ -220,9 +220,10 @@ body {
 	width: 640px;
 	max-width: 75%;
 	max-height: 75%;
-	background: rgba(29, 31, 32, 0.85);
+	background: rgba(29, 31, 32, 0.55);
+	backdrop-filter: blur(10px);
 	border-radius: .3rem;
-	box-shadow: 0 20px 60px 10px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 20px 60px 10px rgba(0, 0, 0, 0.33);
 	position: relative;
 }
 #terminal-header {
