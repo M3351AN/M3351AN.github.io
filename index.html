@@ -78,6 +78,9 @@ document.addEventListener('DOMContentLoaded', function () {
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
     <div class="rain front-row"></div>
+    <div class="top-bar">
+	    <div id="time"></div>
+    </div>
     <div class="app-container">
     <a href="https://aimstar.bcow.top/" class="app-icon-link">
       <img src="https://raw.githubusercontent.com/CowNowK/AimStar/master/AS_Logo.png" alt="aimstar" />
@@ -139,6 +142,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			document.write('© '+Year(new Date().getYear())+' 渟雲 - All Rights Reserved');<!--However,this site is build by me.-->
 		</script>
 	</div>
+    <script>
+function updateTime() {
+  var now = new Date();
+  var hours = now.getHours();
+  var minutes = now.getMinutes();
+  minutes = minutes < 10 ? '0' + minutes : minutes;
+  var timeString = hours + ':' + minutes;
+  document.getElementById('time').textContent = timeString;
+}
+setInterval(updateTime, 1000);
+updateTime();
+    </script>
     <script src="static/js/jquery.min.js"></script>
     <script src="static/js/jquery.nicescroll.min.js"></script>
     <script src="static/js/script-1610211579.js"></script><!--Yes,most of functions you want including in this .js-->
