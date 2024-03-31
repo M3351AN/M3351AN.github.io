@@ -319,3 +319,43 @@ body {
   margin-top: 5px; 
   color: black;
 }
+
+.notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 250px;
+  background: rgba(29, 31, 32, 0.55);
+  color: white;
+  text-align: left;
+  border-radius: .3rem;
+  box-shadow: 0 20px 60px 10px rgba(0, 0, 0, 0.33);
+  padding: 15px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  z-index: 1000;
+}
+
+.notification-header {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.notification-body {
+  font-size: 14px;
+}
+
+.closebtn {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.closebtn:hover {
+  color: #ccc;
+}
