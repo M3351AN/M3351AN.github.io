@@ -393,3 +393,13 @@ body {
 .notification.hide {
   animation: slideOut 0.5s cubic-bezier(0.75, 0.25, 0.25, 0.75) forwards;
 }
+
+.top-bar {
+    height : 24px;
+    background-color: rgba(29, 31, 32, 0.95);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 15px;
+}
