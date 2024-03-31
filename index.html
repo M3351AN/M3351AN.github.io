@@ -35,7 +35,7 @@ getCS();
 waitForStats();
 //document.addEventListener('DOMContentLoaded', getCS())
 function getIP() {
-   fetch('https://api.ipify.org?format=json')
+   fetch('https://api64.ipify.org?format=json')
   .then(response => response.json())
   .then(data => {
     visitorIP = data.ip;
