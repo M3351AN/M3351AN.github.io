@@ -210,7 +210,7 @@ body {
     transform: translate(-50%, -50%);
 	height: 100%;
 	text-align: center;
-	padding: 50px;
+	padding: 0px;
 	z-index: 100;
 }
 #terminal {
