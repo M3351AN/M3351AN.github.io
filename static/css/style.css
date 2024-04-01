@@ -222,6 +222,7 @@ body {
 	border-radius: .3rem;
 	box-shadow: 0 20px 60px 10px rgba(0, 0, 0, 0.33);
 	position: relative;
+	vertical-align: middle;
 }
 #terminal-header {
 	border-top-left-radius: .3rem;
