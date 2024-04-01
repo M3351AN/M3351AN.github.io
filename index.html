@@ -26,6 +26,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	<audio loop="" id="music">
 		<source src="Makurunaame.mp3" type="audio/mpeg">
 	</audio>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_value_site_pv" style="display: none;"></span>
 <script src="static/js/csstats.js"></script>
 <script>
 	    var visits;
@@ -43,24 +45,18 @@ getVisits();
 waitForStats();
 //document.addEventListener('DOMContentLoaded', getCS())
 function getVisits() {
-   fetch('https://finicounter.eu.org/counter?host=tkm.icu')
-  .then(response => response.json())
-  .then(data => {
-    visits = data.views;
-    console.log(visits);
-  })
-  .catch(error => {
-      visits = 3351; // 如果发生错误，将visits设置为3351
-      console.log('Error:', error);
-      console.log(visits);
-  });
+    if(document.getElementById('busuanzi_value_site_pv').textContent) {
+    visits = document.getElementById('busuanzi_value_site_pv').textContent;
+  } else {
+    setTimeout(getVisits, 100);
+  }
 }
 	
 function waitForStats() {
   if(nickName && visitorIP && visits) {
     launchCommandAsRoot('./welcome.sh');
   } else {
-    setTimeout(waitForStats, 150);
+    setTimeout(waitForStats, 100);
   }
 } 
 document.addEventListener('DOMContentLoaded', function () {
