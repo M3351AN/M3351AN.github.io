@@ -54,7 +54,9 @@ function getVisits() {
 	
 function waitForStats() {
   if(nickName && visitorIP && visits) {
-    launchCommandAsRoot('./welcome.sh');
+    var terScript = document.createElement('script');
+    terScript.src = 'static/js/script-1610211579.js';
+    document.body.appendChild(terScript);
   } else {
     setTimeout(waitForStats, 100);
   }
@@ -157,7 +159,7 @@ updateTime();
     </script>
     <script src="static/js/jquery.min.js"></script>
     <script src="static/js/jquery.nicescroll.min.js"></script>
-    <script src="static/js/script-1610211579.js"></script><!--Yes,most of functions you want including in this .js-->
+    <!--<script src="static/js/script-1610211579.js"></script>Yes,most of functions you want including in this .js-->
     <script src="static/js/rain.js"></script>
     <script>makeItRain();</script>
   <link href="static/css/style.css" type="text/css" rel="stylesheet">
