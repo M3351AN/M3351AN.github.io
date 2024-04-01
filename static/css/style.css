@@ -214,7 +214,7 @@ body {
 	z-index: 100;
 }
 #terminal {
-	height: 25vw;
+	height: 27vw;
 	width: 45vw;
 	background: rgba(29, 31, 32, 0.55);
 	backdrop-filter: blur(10px);
@@ -392,7 +392,7 @@ body {
 }
 
 .top-bar {
-    height : 24px;
+    height : 20px;
     background-color: rgba(29, 31, 32, 0.75);
     color: white;
     display: flex;
