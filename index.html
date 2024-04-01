@@ -26,7 +26,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <span id="busuanzi_value_site_pv" style="display: none;"></span>
 <script src="static/js/csstats.js"></script>
-<script>
+<script async>
 	    var visits;
 	    var visitorIP;
 	    var visitorCountry = "REDACTED FOR PRIVACY";var visitorCountryCode = "N/A";
@@ -63,14 +63,14 @@ document.addEventListener('DOMContentLoaded', function () {
   notification.classList.add('show');
 });
   </script>
-<script type="application/javascript">
+<script async type="application/javascript">
   function getIP(json) {
     visitorIP = json.ip;
     console.log(visitorIP);
   }
 </script>
 
-<script type="application/javascript" src="https://api64.ipify.org?format=jsonp&callback=getIP"></script>
+<script async type="application/javascript" src="https://api64.ipify.org?format=jsonp&callback=getIP"></script>
   </head>
   <body class="back-row-toggle splat-toggle" >
 <!-- Google Tag Manager (noscript) -->
