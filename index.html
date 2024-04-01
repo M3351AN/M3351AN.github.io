@@ -19,7 +19,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">                       
   <title>渟雲,te quiero mucho!</title>
     
-	
+<link rel="stylesheet" href="static/css/style.css">	
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <span id="busuanzi_value_site_pv" style="display: none;"></span>
 <script async src="static/js/csstats.js"></script>
@@ -56,26 +56,16 @@ function waitForStats() {
     setTimeout(waitForStats, 100);
   }
 } 
-function loadCSS(url) {
-    var link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = url;
-    document.head.appendChild(link);
-}
-loadCSS("static/css/style.css");
 var notification = document.querySelector('.notification');
 notification.classList.add('show');
-</script>
+  </script>
 <script async type="application/javascript">
   function getIP(json) {
     visitorIP = json.ip;
     console.log(visitorIP);
   }
-loadCSS("static/css/rain.css");
 </script>
-<script async>
-loadCSS("static/css/font-awesome.min.css");
-</script>
+
 <script async type="application/javascript" src="https://api64.ipify.org?format=jsonp&callback=getIP"></script>
   </head>
   <body class="back-row-toggle splat-toggle" >
@@ -151,7 +141,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	  	<audio loop="" id="music">
 			<source src="Makurunaame.mp3" type="audio/mpeg">
 		</audio>
+    <script>
+function loadCSS(url) {
+    var link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = url;
+    document.head.appendChild(link);
+}
 
+
+
+loadCSS("static/css/font-awesome.min.css");
+loadCSS("static/css/rain.css");
+    </script>
 <script async>
 function updateTime() {
   var now = new Date();
@@ -168,7 +170,7 @@ updateTime();
     <script src="static/js/jquery.nicescroll.min.js"></script>-->
     <!--<script src="static/js/script-1610211579.js"></script>Yes,most of functions you want including in this .js-->
     <!--<script defer src="static/js/rain.js"></script>-->
-    <script async src="static/combined.min.js"></script>
+    <script src="static/combined.min.js"></script>
     <script>makeItRain();</script>
     </body>
 </html>
