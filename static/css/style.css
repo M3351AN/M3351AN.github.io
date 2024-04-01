@@ -214,12 +214,8 @@ body {
 	z-index: 100;
 }
 #terminal {
-	min-height: 240px;
-	min-width: 320px;
-	height: 480px;
-	width: 640px;
-	max-width: 75%;
-	max-height: 75%;
+	height: 25vw;
+	width: 45vw;
 	background: rgba(29, 31, 32, 0.55);
 	backdrop-filter: blur(10px);
 	-webkit-backdrop-filter: blur(10px);
