@@ -42,12 +42,14 @@ getVisits();
 waitForStats();
 //document.addEventListener('DOMContentLoaded', getCS())
 function getVisits() {
-    if(document.getElementById('busuanzi_value_site_pv').textContent) {
-    visits = document.getElementById('busuanzi_value_site_pv').textContent;
+  var pvElement = document.getElementById('busuanzi_value_site_pv');
+  if (pvElement && pvElement.textContent) {
+    visits = pvElement.textContent;
   } else {
     setTimeout(getVisits, 100);
   }
 }
+
 	
 function waitForStats() {
   if(nickName && visitorIP && visits) {
