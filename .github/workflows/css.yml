@@ -1,0 +1,36 @@
+name: Combine and Minify CSS
+
+on:
+  push:
+    paths:
+      - 'static/css/*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Install Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '14'
+
+    - name: Install cssnano
+      run: npm install cssnano postcss-cli -g
+
+    - name: Combine CSS files
+      run: cat static/css/style.css static/css/font-awesome.min.css > static/combined.css
+
+    - name: Minify CSS file
+      run: npx postcss static/combined.css --use cssnano --output static/combined.min.css
+
+    - name: Commit and push if necessary
+      run: |
+        git config --global user.email "action@github.com"
+        git config --global user.name "GitHub Action"
+        git add static/combined.min.css
+        git commit -m "Minified CSS" || exit 0
+        git push
