@@ -49,6 +49,11 @@ function getVisits() {
     visits = data.views;
     console.log(visits);
   })
+  .catch(error => {
+      visits = 3351; // 如果发生错误，将visits设置为3351
+      console.log('Error:', error);
+      console.log(visits);
+  });
 }
 	
 function waitForStats() {
