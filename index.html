@@ -20,16 +20,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta charset="UTF-8">
     
 	
-	<link rel="stylesheet" href="static/css/rain.css">
+    <link rel="stylesheet" href="static/css/rain.css">
     <link rel="stylesheet" href="static/css/style.css">
     <link rel="stylesheet" href="static/css/font-awesome.min.css">
-	<audio loop="" id="music">
-		<source src="Makurunaame.mp3" type="audio/mpeg">
-	</audio>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <span id="busuanzi_value_site_pv" style="display: none;"></span>
 <script src="static/js/csstats.js"></script>
-<script async>
+<script>
 	    var visits;
 	    var visitorIP;
 	    var visitorCountry = "REDACTED FOR PRIVACY";var visitorCountryCode = "N/A";
@@ -140,12 +137,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
     </div>
 	<div id="copyright">
-		<script>
+		<script async>
 			function Year(number) { return (number < 1000) ? number + 1900 : number; }
 			document.write('© '+Year(new Date().getYear())+' 渟雲 - All Rights Reserved');<!--However,this site is build by me.-->
 		</script>
 	</div>
-    <script>
+	  	<audio loop="" id="music">
+			<source src="Makurunaame.mp3" type="audio/mpeg">
+		</audio>
+    <script async>
 function updateTime() {
   var now = new Date();
   var hours = now.getHours();
@@ -160,7 +160,7 @@ updateTime();
     <script src="static/js/jquery.min.js"></script>
     <script src="static/js/jquery.nicescroll.min.js"></script>
     <!--<script src="static/js/script-1610211579.js"></script>Yes,most of functions you want including in this .js-->
-    <script src="static/js/rain.js"></script>
+    <script defer src="static/js/rain.js"></script>
     <script>makeItRain();</script>
   <link href="static/css/style.css" type="text/css" rel="stylesheet">
   </body>
