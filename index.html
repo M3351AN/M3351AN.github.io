@@ -22,7 +22,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="stylesheet" href="static/css/style.css">	
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <span id="busuanzi_value_site_pv" style="display: none;"></span>
-<script async src="static/js/csstats.js"></script>
+<script src="static/js/csstats.js"></script>
 <script async>
 	    var visits;
 	    var visitorIP;
@@ -67,6 +67,106 @@ notification.classList.add('show');
 </script>
 
 <script async type="application/javascript" src="https://api64.ipify.org?format=jsonp&callback=getIP"></script>
+<style>
+.rain {
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -99;
+}
+
+.rain.back-row {
+  display: none;
+  z-index: -100;
+  height: 100vh;
+  width: 100vw;
+  opacity: 0.5;
+}
+
+body.back-row-toggle .rain.back-row {
+  display: block;
+}
+
+.drop {
+  position: absolute;
+  width: 15px;
+  height: 150px;
+  pointer-events: none;
+  animation: drop 0.5s linear infinite;
+}
+
+@keyframes drop {
+  0% {
+    transform: translateY(0vh);
+  }
+  75% {
+    transform: translateY(90vh);
+  }
+  100% {
+    transform: translateY(90vh);
+  }
+}
+
+.stem {
+  width: 1px;
+  height: 100%;
+  margin-left: 7px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.25));
+  animation: stem 0.8s linear infinite;
+}
+
+@keyframes stem {
+  0% {
+    opacity: 1;
+  }
+  65% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.splat {
+  width: 15px;
+  height: 10px;
+  border-top: 2px dotted rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  opacity: 1;
+  transform: scale(0);
+  animation: splat 0.5s linear infinite;
+  display: none;
+}
+
+body.splat-toggle .splat {
+  display: block;
+}
+
+@keyframes splat {
+  0% {
+    opacity: 1;
+    transform: scale(0);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(0);
+  }
+  90% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+}
+</style> 
+  
   </head>
   <body class="back-row-toggle splat-toggle" >
 <!-- Google Tag Manager (noscript) -->
@@ -149,10 +249,7 @@ function loadCSS(url) {
     document.head.appendChild(link);
 }
 
-
-
 loadCSS("static/css/font-awesome.min.css");
-loadCSS("static/css/rain.css");
     </script>
 <script async>
 function updateTime() {
@@ -171,6 +268,5 @@ updateTime();
     <!--<script src="static/js/script-1610211579.js"></script>Yes,most of functions you want including in this .js-->
     <!--<script defer src="static/js/rain.js"></script>-->
     <script src="static/combined.min.js"></script>
-    <script>makeItRain();</script>
     </body>
 </html>
