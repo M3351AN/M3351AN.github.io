@@ -56,16 +56,26 @@ function waitForStats() {
     setTimeout(waitForStats, 100);
   }
 } 
+function loadCSS(url) {
+    var link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = url;
+    document.head.appendChild(link);
+}
+loadCSS("static/css/style.css");
 var notification = document.querySelector('.notification');
 notification.classList.add('show');
-  </script>
+</script>
 <script async type="application/javascript">
   function getIP(json) {
     visitorIP = json.ip;
     console.log(visitorIP);
   }
+loadCSS("static/css/rain.css");
 </script>
-
+<script async>
+loadCSS("static/css/font-awesome.min.css");
+</script>
 <script async type="application/javascript" src="https://api64.ipify.org?format=jsonp&callback=getIP"></script>
   </head>
   <body class="back-row-toggle splat-toggle" >
@@ -141,19 +151,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	  	<audio loop="" id="music">
 			<source src="Makurunaame.mp3" type="audio/mpeg">
 		</audio>
-    <script async>
-function loadCSS(url) {
-    var link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = url;
-    document.head.appendChild(link);
-}
 
-
-loadCSS("static/css/style.css");
-loadCSS("static/css/font-awesome.min.css");
-loadCSS("static/css/rain.css");
-    </script>
 <script async>
 function updateTime() {
   var now = new Date();
