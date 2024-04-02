@@ -3,7 +3,7 @@ name: Minify JS
 on:
   push:
     paths:
-      - 'static/js/*'
+      - 'static/js/script-1610211579.js'
 
 jobs:
   build:
