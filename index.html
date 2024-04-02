@@ -35,12 +35,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	    var lastCountry4 = "N/A";
 	    var lastUpdate = "Apr-02-2K24";
 	    var upTime;
+	    var lastCommitDate;
 getCS();
 getVisits();
+fetchGit();
 getGit();
 waitForStats();
 
-setInterval(getGit, 3000);
+setInterval(getGit, 30000);
 function getVisits() {
   var pvElement = document.getElementById('busuanzi_value_site_pv');
   if (pvElement && pvElement.textContent) {
@@ -50,27 +52,27 @@ function getVisits() {
   }
 }
 
-
-function getGit() {
+function fetchGit() {
 const apiURL = 'https://api.github.com/repos/M3351AN/M3351AN.github.io/commits';
 
 fetch(apiURL)
   .then(response => response.json())
   .then(commits => {
-    const lastCommitDate = new Date(commits[0].commit.committer.date);
+    lastCommitDate = new Date(commits[0].commit.committer.date);
+    console.log(lastCommitDate);
+  })
+  .catch(error => console.error('error', error));
+
+} 
+function getGit() {
     const now = new Date();
     const timeDiff = now - lastCommitDate;
     let seconds = Math.floor(timeDiff / 1000);
     let minutes = Math.floor(seconds / 60);
     let hours = Math.floor(minutes / 60);
-    seconds = seconds % 60;
     minutes = minutes % 60;
-    upTime = `${hours}:${minutes}:${seconds}`;
+    upTime = `${hours}:${minutes}`;
     console.log(upTime);
-  })
-  .catch(error => console.error('error', error));
-
-
 
 } 
 	
