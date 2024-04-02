@@ -1,0 +1,33 @@
+name: Minify JS
+
+on:
+  push:
+    paths:
+      - 'static/js/*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Install Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '14'
+
+    - name: Install UglifyJS
+      run: npm install uglify-js -g
+
+    - name: Minify JS file
+      run: uglifyjs static/js/script-1610211579.js --compress --mangle --output static/terminal.min.js
+
+    - name: Commit and push if necessary
+      run: |
+        git config --global user.email "action@github.com"
+        git config --global user.name "GitHub Action"
+        git add static/terminal.min.js
+        git commit -m "Minified JS" || exit 0
+        git push
