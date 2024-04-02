@@ -71,7 +71,7 @@ if (lastUpdate) {
     let minutes = Math.floor(seconds / 60);
     let hours = Math.floor(minutes / 60);
     minutes = minutes % 60;
-    upTime = `${hours}:${minutes}`;
+    upTime = `${hours} h ${minutes} min `;
     console.log(upTime);
 } else {
     setTimeout(getGit, 100);
