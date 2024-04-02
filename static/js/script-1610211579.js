@@ -103,7 +103,7 @@ function launchCommandAsRoot(command)
       'Last 5 Visits: <span class="red">' + lastCountry0 + '</span>, <span class="red">' + lastCountry1 + '</span>, <span class="red">' + lastCountry2 + '</span>, <span class="red">' + lastCountry3 + '</span>, <span class="red">' + lastCountry4 + '</span>.<br>',
       'Total Visits: <span class="red">' + visits + ' </span>Up time: <span class="red">' + upTime + ' </span><br>',
       'CS Stats: <br>',
-      '<img src="https://avatars.akamai.steamstatic.com/752c788e3ded2a25994e68925cb694138e7fb337.jpg"> <br>',
+      '<img src="https://avatars.akamai.steamstatic.com/752c788e3ded2a25994e68925cb694138e7fb337.jpg" height="32" width="32"> <br>',
       'PlayerID: <span class="red">' + nickName + ' </span>',
       'FriendCode: <span class="red">' + friendCode + ' </span><br>',
       'CS2 Hours: <span class="red">' + hours + ' </span>',
