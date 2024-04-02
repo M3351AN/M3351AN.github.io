@@ -122,10 +122,10 @@ function launchCommandAsRoot(command)
       '<b>Type \'help\' for more details on the commands</b>'
 	];
 	if (command === './welcome.sh'){
+	res = '';
         parts.forEach(part => {
             $('<span>' + part + '</span>').insertBefore(form);
         });
-        res = '';
 	}
     else
 	{
