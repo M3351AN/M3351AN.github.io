@@ -58,7 +58,7 @@ fetch(apiURL)
   .then(response => response.json())
   .then(commits => {
     lastUpdate = new Date(commits[0].commit.committer.date);
-    console.log(lastCommitDate);
+    console.log(lastUpdate);
   })
   .catch(error => console.error('error', error));
 
