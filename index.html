@@ -65,6 +65,7 @@ fetch(apiURL)
 
 } 
 function getGit() {
+if (lastCommitDate) {
     const now = new Date();
     const timeDiff = now - lastCommitDate;
     let seconds = Math.floor(timeDiff / 1000);
@@ -73,7 +74,9 @@ function getGit() {
     minutes = minutes % 60;
     upTime = `${hours}:${minutes}`;
     console.log(upTime);
-
+} else {
+    setTimeout(getGit, 100);
+}
 } 
 	
 function waitForStats() {
