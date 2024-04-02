@@ -40,7 +40,7 @@ getVisits();
 getGit();
 waitForStats();
 
-
+setInterval(getGit, 3000);
 function getVisits() {
   var pvElement = document.getElementById('busuanzi_value_site_pv');
   if (pvElement && pvElement.textContent) {
