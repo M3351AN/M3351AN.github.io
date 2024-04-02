@@ -97,9 +97,32 @@ function OnlyRoot(command) {
 function launchCommandAsRoot(command) 
 {
 	var res = '';
+	const parts = [
+      'Welcome to <span class="red">tkm.icu</span>!<br>',
+      'You\'re visiting from: <span class="red">' + visitorIP + ' </span><br>',
+      'Last 5 Visits: <span class="red">' + lastCountry0 + '</span>, <span class="red">' + lastCountry1 + '</span>, <span class="red">' + lastCountry2 + '</span>, <span class="red">' + lastCountry3 + '</span>, <span class="red">' + lastCountry4 + '</span>.<br>',
+      'Total Visits: <span class="red">' + visits + ' </span>Up time: <span class="red">' + upTime + ' </span><br>',
+      'CS Stats: <br>',
+      '<img src="https://avatars.akamai.steamstatic.com/752c788e3ded2a25994e68925cb694138e7fb337.jpg"> <br>',
+      'PlayerID: <span class="red">' + nickName + ' </span>',
+      'FriendCode: <span class="red">' + friendCode + ' </span><br>',
+      'CS2 Hours: <span class="red">' + hours + ' </span>',
+      'Recent Rating: <span class="red">' + recRating + ' </span>',
+      'K/D Ratio: <span class="red">' + kd + ' </span><br>',
+      'RWS: <span class="red">' + rws + ' </span>',
+      'ADR: <span class="red">' + adr + ' </span>',
+      'Total Rating: <span class="red">' + rating + ' </span>',
+      'KAST: <span class="red">' + kast + '\% </span><br>',
+      'Headshot Ratio: <span class="red">' + hsRatio + ' </span>',
+      'AWP Kill Ratio: <span class="red">' + awpKillRatio + ' </span><br>',
+      'Entry Kill Ratio: <span class="red">' + entKillRatio + ' </span>',
+      'Flashbang Success Ratio: <span class="red">' + flaSuccessRatio + ' </span><br>',
+      'Terminal Updated: <span class="red">' + lastUpdate +'</span><br><br>',
+      '<b>Type \'help\' for more details on the commands</b>'
+	];
 	if (command === './welcome.sh'){
-        res = 'Welcome to <span class="red">tkm.icu</span>!<br>You\'re visiting from: <span class="red">' + visitorIP + '</span><br>Last 5 Visits: <span class="red">' + lastCountry0 + '</span>, <span class="red">' + lastCountry1 + '</span>, <span class="red">' + lastCountry2 + '</span>, <span class="red">' + lastCountry3 + '</span>, <span class="red">' + lastCountry4 + '</span>.<br>Total Visits: <span class="red">' + visits + '</span><br>CS Stats: <br> <img src="https://avatars.akamai.steamstatic.com/752c788e3ded2a25994e68925cb694138e7fb337.jpg"> <br>PlayerID: <span class="red">' + nickName + ' </span>FriendCode: <span class="red">' + friendCode + ' </span><br>CS2 Hours: <span class="red">' + hours + ' </span>Recent Rating: <span class="red">' + recRating + ' </span>K/D Ratio: <span class="red">' + kd + ' </span><br>RWS: <span class="red">' + rws + ' </span>ADR: <span class="red">' + adr + ' </span>Total Rating: <span class="red">' + rating + ' </span>KAST: <span class="red">' + kast + '\% </span><br>Headshot Ratio: <span class="red">' + hsRatio + ' </span>AWP Kill Ratio: <span class="red">' + awpKillRatio + ' </span><br>Entry Kill Ratio: <span class="red">' + entKillRatio + ' </span>Flashbang Success Ratio: <span class="red">' + flaSuccessRatio + ' </span><br>Terminal Updated: <span class="red">' + lastUpdate +'</span><br><br><b>Type \'help\' for more details on the commands</b>';
-    }
+        res = parts.join('');
+	}
     else
 	{
 		window.alert("Nice try to changing \'root\' variable to 1");
