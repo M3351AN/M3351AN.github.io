@@ -35,7 +35,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	    var lastCountry4 = "N/A";
 	    var lastUpdate = "Apr-02-2K24";
 	    var upTime;
-	    var lastCommitDate;
 getCS();
 getVisits();
 fetchGit();
@@ -58,16 +57,16 @@ const apiURL = 'https://api.github.com/repos/M3351AN/M3351AN.github.io/commits';
 fetch(apiURL)
   .then(response => response.json())
   .then(commits => {
-    lastCommitDate = new Date(commits[0].commit.committer.date);
+    lastUpdate = new Date(commits[0].commit.committer.date);
     console.log(lastCommitDate);
   })
   .catch(error => console.error('error', error));
 
 } 
 function getGit() {
-if (lastCommitDate) {
+if (lastUpdate) {
     const now = new Date();
-    const timeDiff = now - lastCommitDate;
+    const timeDiff = now - lastUpdate;
     let seconds = Math.floor(timeDiff / 1000);
     let minutes = Math.floor(seconds / 60);
     let hours = Math.floor(minutes / 60);
