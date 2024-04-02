@@ -81,7 +81,7 @@ if (lastUpdate) {
 function waitForStats() {
   if(nickName && visitorIP && visits) {
     var terScript = document.createElement('script');
-    terScript.src = 'static/js/script-1610211579.js';
+    terScript.src = 'static/terminal.min.js';
     document.body.appendChild(terScript);
   } else {
     setTimeout(waitForStats, 100);
