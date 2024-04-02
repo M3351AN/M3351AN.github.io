@@ -123,7 +123,7 @@ function launchCommandAsRoot(command)
 	];
 	if (command === './welcome.sh'){
 	res = '';
-	$('<div>' + prephraseRoot + command + '<p>' + res + '</p></div>').insertBefore(form)
+	$('<div>' + prephraseRoot + command + '<p>' + res + '</p></div>').insertBefore(form);
         parts.forEach(part => {
             $('<span>' + part + '</span>').insertBefore(form);
         });
