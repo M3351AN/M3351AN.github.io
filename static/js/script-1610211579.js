@@ -89,16 +89,8 @@ var prephrase = '<span class="red">visitor@tkm.icu</span>:<span class="blue">~</
 
 var form = $('<div style="width: 100%;display: table"><div style="display: table-cell; width: 1%">' + prephrase + '</div>&nbsp<form id="form" style="display: table-cell; width :100%"><input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" id="tCommand" type="text" maxlength="48" class="nostyle" autofocus /></form></div>').appendTo('#content');
 
-function OnlyRoot(command) {
-	var res = '';
-	res = '[ <span class="red">ERROR</span> ] This command can be run only as root!'
-	$('<div>' + prephrase + command + '<p>' + res + '</p></div>').insertBefore(form)
-}
-
-function launchCommandAsRoot(command) 
-{
-	var res = '';
-	const parts = [
+function renderPart(index) {
+  const parts = [
       'Welcome to <span class="red">tkm.icu</span>!<br>',
       'You\'re visiting from: <span class="red">' + visitorIP + ' </span><br>',
       'Last 5 Visits: <span class="red">' + lastCountry0 + '</span>, <span class="red">' + lastCountry1 + '</span>, <span class="red">' + lastCountry2 + '</span>, <span class="red">' + lastCountry3 + '</span>, <span class="red">' + lastCountry4 + '</span>.<br>',
@@ -120,13 +112,25 @@ function launchCommandAsRoot(command)
       'Flashbang Success Ratio: <span class="red">' + flaSuccessRatio + ' </span><br>',
       'Terminal Updated: <span class="red">' + lastUpdate +'</span><br><br>',
       '<b>Type \'help\' for more details on the commands</b>'
-	];
+  ];
+  if (index < parts.length) {
+    $('<span>' + parts[index] + '</span>').insertBefore(form);
+    setTimeout(function() { renderPart(index + 1); }, 1);
+  }
+}
+function OnlyRoot(command) {
+	var res = '';
+	res = '[ <span class="red">ERROR</span> ] This command can be run only as root!'
+	$('<div>' + prephrase + command + '<p>' + res + '</p></div>').insertBefore(form)
+}
+
+function launchCommandAsRoot(command) 
+{
+	var res = '';
 	if (command === './welcome.sh'){
 	res = '';
 	$('<div>' + prephraseRoot + command + '<p>' + res + '</p></div>').insertBefore(form);
-        parts.forEach(part => {
-            $('<span>' + part + '</span>').insertBefore(form);
-        });
+    renderPart(0);
 	return;
 	}
     else
@@ -139,12 +143,12 @@ function launchCommandAsRoot(command)
 	$('<div>' + prephraseRoot + command + '<p>' + res + '</p></div>').insertBefore(form)
 }
 
+
 function launchCommandAsVisitor(command) 
 {
 	$('<div>' + prephrase + command.cmd + '<p>' + command.res + '</p></div>').insertBefore(form)
 }
 
-launchCommandAsRoot('./welcome.sh');
 $('#content').niceScroll({
 	cursorcolor: '#303030',
 	cursorborder: '0px none',
