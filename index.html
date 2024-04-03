@@ -80,14 +80,16 @@ if (lastUpdate) {
 } 
 	
 function waitForStats() {
-  if(nickName && visitorIP && visits) {
+  if(nickName && visitorIP && visits && upTime) {
     launchCommandAsRoot('./welcome.sh');
   } else {
     setTimeout(waitForStats, 100);
   }
 } 
-var notification = document.querySelector('.notification');
-notification.classList.add('show');
+//window.addEventListener('load', (event) => {
+//var notification = document.querySelector('.notification');
+//notification.classList.add('show');
+//});
   </script>
 <script async type="application/javascript">
   function getIP(json) {
@@ -288,7 +290,7 @@ updateTime();
     <script src="static/js/jquery.nicescroll.min.js"></script>-->
     <!--<script src="static/js/script-1610211579.js"></script>Yes,most of functions you want including in this .js-->
     <!--<script defer src="static/js/rain.js"></script>-->
-    <script src="static/terminal.min.js"></script>
-    <script src="static/combined.min.js"></script>
+    <script async src="static/terminal.min.js"></script>
+    <script async src="static/combined.min.js"></script>
     </body>
 </html>
