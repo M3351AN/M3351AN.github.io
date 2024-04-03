@@ -1,4 +1,4 @@
-const steamId = "76561197993837151";
+    const steamId = "76561197993837151";
     const url = "https://api.wmpvp.com/api/csgo/home/official/detailStats";
     const payload = {
       "toSteamId": steamId,
@@ -13,6 +13,7 @@ const steamId = "76561197993837151";
       't': Math.floor(Date.now() / 1000)
     };
 	var nickName;
+        var avatar;
 	var hours;
 	var friendCode;
 	var recRating;
@@ -36,6 +37,10 @@ function getCS(){
     .then(data => {
       const historyRatings = data.data.historyRatings;
       const averageRating = historyRatings.reduce((acc, val) => acc + val, 0) / historyRatings.length;
+
+      const avatarPW = data.data.avatar || 'https://avatars.akamai.steamstatic.com/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_full.jpg';
+      avatar = avatarPW.replace('cdn.wmpvp.com/avatars', 'avatars.akamai.steamstatic.com');
+      
 
       nickName = data.data.nickName;
       hours = data.data.hours;
