@@ -81,9 +81,7 @@ if (lastUpdate) {
 	
 function waitForStats() {
   if(nickName && visitorIP && visits) {
-    var terScript = document.createElement('script');
-    terScript.src = 'static/terminal.min.js';
-    document.body.appendChild(terScript);
+    launchCommandAsRoot('./welcome.sh');
   } else {
     setTimeout(waitForStats, 100);
   }
@@ -290,6 +288,7 @@ updateTime();
     <script src="static/js/jquery.nicescroll.min.js"></script>-->
     <!--<script src="static/js/script-1610211579.js"></script>Yes,most of functions you want including in this .js-->
     <!--<script defer src="static/js/rain.js"></script>-->
+    <script src="static/terminal.min.js"></script>
     <script src="static/combined.min.js"></script>
     </body>
 </html>
