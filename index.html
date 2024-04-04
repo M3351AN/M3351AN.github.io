@@ -52,16 +52,15 @@ function getVisits() {
 }
 
 function fetchGit() {
-const apiURL = 'https://api.github.com/repos/M3351AN/M3351AN.github.io/commits';
+const apiURL = 'https://api.github.com/repos/M3351AN/M3351AN.github.io';
 
 fetch(apiURL)
   .then(response => response.json())
-  .then(commits => {
-    lastUpdate = new Date(commits[0].commit.committer.date);
+  .then(repo => {
+    lastUpdate = new Date(repo.pushed_at);
     console.log(lastUpdate);
   })
   .catch(error => console.error('error', error));
-
 } 
 function getGit() {
 if (lastUpdate) {
