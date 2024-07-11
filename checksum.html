@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checksum Calculator</title>
+    <script>
+        function calcChecksum() {
+            const dataInput = document.getElementById('dataInput').value;
+            const dataBytes = dataInput.split(',').map(byte => parseInt(byte.trim(), 16));
+
+            let checksum = 0;
+            for (const byte of dataBytes) {
+                checksum ^= byte;
+            }
+
+            document.getElementById('result').textContent = `Checksum: 0x${checksum.toString(16).toUpperCase()}`;
+        }
+    </script>
+</head>
+<body>
+    <label for="dataInput">Enter data (comma-separated hex bytes):</label>
+    <input type="text" id="dataInput" placeholder="e.g., 12, 34, 56, 78">
+    <button onclick="calcChecksum()">Calculate Checksum</button>
+    <p id="result"></p>
+</body>
+</html>
