@@ -7,7 +7,7 @@
     <script>
         function calcChecksum() {
             const dataInput = document.getElementById('dataInput').value;
-            const dataBytes = dataInput.split(',').map(byte => parseInt(byte.trim(), 16));
+            const dataBytes = dataInput.split(' ').map(byte => parseInt(byte.trim(), 16));
 
             let checksum = 0;
             for (const byte of dataBytes) {
@@ -20,7 +20,7 @@
 </head>
 <body>
     <label for="dataInput">Enter data (comma-separated hex bytes):</label>
-    <input type="text" id="dataInput" placeholder="e.g., 12, 34, 56, 78">
+    <input type="text" id="dataInput" placeholder="00 33 00 51 00 00 01" value="00 33 00 51 00 00 01">
     <button onclick="calcChecksum()">Calculate Checksum</button>
     <p id="result"></p>
 </body>
