@@ -209,7 +209,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	    <div id="time"></div>
     </div>
     <div class="app-container">
-    <a href="https://aimstar.bcow.top/" class="app-icon-link">
+    <a href="https://aimstar.tkm.icu/" class="app-icon-link">
       <img src="https://s2.loli.net/2024/04/03/pjLtomdHZe47wAu.webp" width="100" height="100" alt="aimstar" />
       <span class="app-name">Aim Star</span>
     </a>
@@ -269,9 +269,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			document.write('© 2021-'+Year(new Date().getYear())+' 渟雲 - All Rights Reserved.');<!--However,this site is build by me.-->
 		</script>
 		    </div>
-	  	<audio loop="" id="music">
-			<source src="Makurunaame_inst.mp3" type="audio/mpeg">
-		</audio>
+    
 <script async>
 function updateTime() {
   var now = new Date();
@@ -283,6 +281,61 @@ function updateTime() {
 }
 setInterval(updateTime, 1000);
 updateTime();
+</script>
+<script async>
+  let playState= true
+  function AutoPlay () {
+      return new Promise(resolve => {
+  if(playState){
+      let audio = document.createElement('audio');
+      audio.src = "Makurunaame_inst.mp3"
+      audio.loop="loop"
+      document.body.appendChild(audio);
+      let autoplay = true;
+      audio.play().then(() => {
+          autoplay = true;
+      }).catch(err => {
+          autoplay = false;
+      }).finally((e) => {
+          resolve(autoplay);
+      });
+  playState=false
+  }else{
+    resolve(false)
+  }
+
+  });
+}
+
+let audioInfo = {
+  autoplay: false,
+  AutoPlay () {
+      return AutoPlay()
+  },
+  setAutoPlayWhenClick () {
+      function setAutoPlay () {
+          audioInfo.autoplay = true;
+          document.removeEventListener('click', setAutoPlay);
+          document.removeEventListener('touchend', setAutoPlay);
+      }
+      document.addEventListener('click', setAutoPlay);
+      document.addEventListener('touchend', setAutoPlay);
+  },
+  init () {
+      audioInfo.AutoPlay().then(autoplay => {
+          if (!audioInfo.autoplay) {
+              audioInfo.autoplay = autoplay;
+          }
+      });
+      audioInfo.setAutoPlayWhenClick();
+  }
+};
+      document.addEventListener('click', ()=>{
+    audioInfo.init();
+      });
+       document.addEventListener('touchend', ()=>{
+      audioInfo.init();
+       });
 </script>
     <!--<script src="static/js/jquery.min.js"></script>
     <script src="static/js/jquery.nicescroll.min.js"></script>-->
