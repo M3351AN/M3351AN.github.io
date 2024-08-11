@@ -290,6 +290,7 @@ updateTime();
       let audio = document.createElement('music');
       audio.src = "Makurunaame_inst.mp3"
       audio.loop="loop"
+      audio.volume = 50
       document.body.appendChild(audio);
       let autoplay = true;
       audio.play().then(() => {
