@@ -4,211 +4,223 @@ All materials published here are protected by copyright and are expressly prohib
 <!DOCTYPE html>
 <!-- Why watch my source... -->
 <html lang="en">
-  <head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WSD5KG7P');</script>
-<!-- End Google Tag Manager -->
-	  <meta name="description" content="My life's hacking,reversing,patching,pcaping and assembling mon destin.">
-	  <meta name="google-adsense-account" content="ca-pub-4393302685242343">
-	  <meta http-equiv="Content-Type"content="text/html; charset=utf-8">
-	  <!--<meta charset="UTF-8">-->
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">                       
+
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-WSD5KG7P');</script>
+  <!-- End Google Tag Manager -->
+  <meta name="description" content="My life's hacking,reversing,patching,pcaping and assembling mon destin.">
+  <meta name="google-adsense-account" content="ca-pub-4393302685242343">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <!--<meta charset="UTF-8">-->
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <title>渟雲 Teikumo,te quiero mucho!</title>
-    
-<link rel="stylesheet" href="static/css/style.css">
-<!--<link rel="stylesheet" href="static/css/fontawesome.min.css">-->
-<script async src="static/js/busuanzi.js"></script>
-<span id="busuanzi_value_site_pv" style="display: none;"></span>
-<script src="static/js/csstats.js"></script>
-<script async>
-	    var visits;
-	    var visitorIP;
-	    var visitorCountry = "REDACTED FOR PRIVACY";var visitorCountryCode = "N/A";
-	    var lastCountry0 = "N/A";
-	    var lastCountry1 = "N/A";
-	    var lastCountry2 = "N/A";
-	    var lastCountry3 = "N/A";
-	    var lastCountry4 = "N/A";
-	    var lastUpdate;
-	    var upTime;
-getCS();
-getVisits();
-fetchGit();
-getGit();
-waitForStats();
 
-setInterval(getGit, 30000);
-function getVisits() {
-  var pvElement = document.getElementById('busuanzi_value_site_pv');
-  if (pvElement && pvElement.textContent) {
-    visits = pvElement.textContent;
-  } else {
-    setTimeout(getVisits, 100);
-  }
-}
+  <link rel="stylesheet" href="static/css/style.css">
+  <!--<link rel="stylesheet" href="static/css/fontawesome.min.css">-->
+  <script async src="static/js/busuanzi.js"></script>
+  <span id="busuanzi_value_site_pv" style="display: none;"></span>
+  <script src="static/js/csstats.js"></script>
+  <script async>
+    var visits;
+    var visitorIP;
+    var visitorCountry = "REDACTED FOR PRIVACY"; var visitorCountryCode = "N/A";
+    var lastCountry0 = "N/A";
+    var lastCountry1 = "N/A";
+    var lastCountry2 = "N/A";
+    var lastCountry3 = "N/A";
+    var lastCountry4 = "N/A";
+    var lastUpdate;
+    var upTime;
+    getCS();
+    getVisits();
+    fetchGit();
+    getGit();
+    waitForStats();
 
-function fetchGit() {
-const apiURL = 'https://api.github.com/repos/M3351AN/M3351AN.github.io';
+    setInterval(getGit, 30000);
+    function getVisits() {
+      var pvElement = document.getElementById('busuanzi_value_site_pv');
+      if (pvElement && pvElement.textContent) {
+        visits = pvElement.textContent;
+      } else {
+        setTimeout(getVisits, 100);
+      }
+    }
 
-fetch(apiURL)
-  .then(response => response.json())
-  .then(repo => {
-    lastUpdate = new Date(repo.pushed_at);
-    console.log(lastUpdate);
-  })
-  .catch(error => console.error('error', error));
-} 
-function getGit() {
-if (lastUpdate) {
-    const now = new Date();
-    const timeDiff = now - lastUpdate;
-    let seconds = Math.floor(timeDiff / 1000);
-    let minutes = Math.floor(seconds / 60);
-    let hours = Math.floor(minutes / 60);
-    minutes = minutes % 60;
-    upTime = `${hours} h ${minutes} min `;
-    console.log(upTime);
-} else {
-    setTimeout(getGit, 100);
-}
-} 
-	
-function waitForStats() {
-  if(nickName && visitorIP && visits && upTime) {
-    launchCommandAsRoot('./welcome.sh');
-  } else {
-    setTimeout(waitForStats, 100);
-  }
-} 
-//window.addEventListener('load', (event) => {
-//var notification = document.querySelector('.notification');
-//notification.classList.add('show');
-//});
+    function fetchGit() {
+      const apiURL = 'https://api.github.com/repos/M3351AN/M3351AN.github.io';
+
+      fetch(apiURL)
+        .then(response => response.json())
+        .then(repo => {
+          lastUpdate = new Date(repo.pushed_at);
+          console.log(lastUpdate);
+        })
+        .catch(error => console.error('error', error));
+    }
+    function getGit() {
+      if (lastUpdate) {
+        const now = new Date();
+        const timeDiff = now - lastUpdate;
+        let seconds = Math.floor(timeDiff / 1000);
+        let minutes = Math.floor(seconds / 60);
+        let hours = Math.floor(minutes / 60);
+        minutes = minutes % 60;
+        upTime = `${hours} h ${minutes} min `;
+        console.log(upTime);
+      } else {
+        setTimeout(getGit, 100);
+      }
+    }
+
+    function waitForStats() {
+      if (nickName && visitorIP && visits && upTime) {
+        launchCommandAsRoot('./welcome.sh');
+      } else {
+        setTimeout(waitForStats, 100);
+      }
+    }
+    //window.addEventListener('load', (event) => {
+    //var notification = document.querySelector('.notification');
+    //notification.classList.add('show');
+    //});
   </script>
-<script async type="application/javascript">
-  function getIP(json) {
-    visitorIP = json.ip;
-    console.log(visitorIP);
-  }
-</script>
+  <script async type="application/javascript">
+    function getIP(json) {
+      visitorIP = json.ip;
+      console.log(visitorIP);
+    }
+  </script>
 
-<script async type="application/javascript" src="https://api64.ipify.org?format=jsonp&callback=getIP"></script>
-<style>
-.rain {
-  overflow: hidden;
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -99;
-}
+  <script async type="application/javascript" src="https://api64.ipify.org?format=jsonp&callback=getIP"></script>
+  <style>
+    .rain {
+      overflow: hidden;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -99;
+    }
 
-.rain.back-row {
-  display: none;
-  z-index: -100;
-  height: 100vh;
-  width: 100vw;
-  opacity: 0.5;
-}
+    .rain.back-row {
+      display: none;
+      z-index: -100;
+      height: 100vh;
+      width: 100vw;
+      opacity: 0.5;
+    }
 
-body.back-row-toggle .rain.back-row {
-  display: block;
-}
+    body.back-row-toggle .rain.back-row {
+      display: block;
+    }
 
-.drop {
-  position: absolute;
-  width: 15px;
-  height: 150px;
-  pointer-events: none;
-  animation: drop 0.5s linear infinite;
-}
+    .drop {
+      position: absolute;
+      width: 15px;
+      height: 150px;
+      pointer-events: none;
+      animation: drop 0.5s linear infinite;
+    }
 
-@keyframes drop {
-  0% {
-    transform: translateY(0vh);
-  }
-  75% {
-    transform: translateY(90vh);
-  }
-  100% {
-    transform: translateY(90vh);
-  }
-}
+    @keyframes drop {
+      0% {
+        transform: translateY(0vh);
+      }
 
-.stem {
-  width: 1px;
-  height: 100%;
-  margin-left: 7px;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.25));
-  animation: stem 0.8s linear infinite;
-}
+      75% {
+        transform: translateY(90vh);
+      }
 
-@keyframes stem {
-  0% {
-    opacity: 1;
-  }
-  65% {
-    opacity: 1;
-  }
-  75% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
-}
+      100% {
+        transform: translateY(90vh);
+      }
+    }
 
-.splat {
-  width: 15px;
-  height: 10px;
-  border-top: 2px dotted rgba(255, 255, 255, 0.5);
-  border-radius: 50%;
-  opacity: 1;
-  transform: scale(0);
-  animation: splat 0.5s linear infinite;
-  display: none;
-}
+    .stem {
+      width: 1px;
+      height: 100%;
+      margin-left: 7px;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.25));
+      animation: stem 0.8s linear infinite;
+    }
 
-body.splat-toggle .splat {
-  display: block;
-}
+    @keyframes stem {
+      0% {
+        opacity: 1;
+      }
 
-@keyframes splat {
-  0% {
-    opacity: 1;
-    transform: scale(0);
-  }
-  80% {
-    opacity: 1;
-    transform: scale(0);
-  }
-  90% {
-    opacity: 0.5;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.5);
-  }
-}	
-</style> 
-  
-  </head>
-  <body class="back-row-toggle splat-toggle" >
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WSD5KG7P"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-    <div class="rain back-row"></div>
-    <div class="rain front-row"></div>
-    <div class="top-bar">
-	    <div id="time"></div>
-    </div>
-    <div class="app-container">
+      65% {
+        opacity: 1;
+      }
+
+      75% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    .splat {
+      width: 15px;
+      height: 10px;
+      border-top: 2px dotted rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      opacity: 1;
+      transform: scale(0);
+      animation: splat 0.5s linear infinite;
+      display: none;
+    }
+
+    body.splat-toggle .splat {
+      display: block;
+    }
+
+    @keyframes splat {
+      0% {
+        opacity: 1;
+        transform: scale(0);
+      }
+
+      80% {
+        opacity: 1;
+        transform: scale(0);
+      }
+
+      90% {
+        opacity: 0.5;
+        transform: scale(1);
+      }
+
+      100% {
+        opacity: 0;
+        transform: scale(1.5);
+      }
+    }
+  </style>
+</head>
+
+<body class="back-row-toggle splat-toggle">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WSD5KG7P" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div class="rain back-row"></div>
+  <div class="rain front-row"></div>
+  <div class="top-bar">
+    <div id="time"></div>
+  </div>
+  <div class="app-container">
     <a href="https://aimstar.tkm.icu/" class="app-icon-link">
       <img src="https://s2.loli.net/2024/04/03/pjLtomdHZe47wAu.webp" width="100" height="100" alt="aimstar" />
       <span class="app-name">Aim Star</span>
@@ -217,8 +229,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <img src="https://s2.loli.net/2024/04/04/JkwocrjVuaqKsCf.webp" width="100" height="100" alt="csstats" />
       <span class="app-name">CS Player Stats</span>
     </a>
-    </div>
-    <div class="app-container">
+  </div>
+  <div class="app-container">
     <a href="https://hvhbbs.com" class="app-icon-link">
       <img src="https://s2.loli.net/2024/04/03/DAouJ2UKQmLfGpM.webp" width="100" height="100" alt="hvhbbs" />
       <span class="app-name">HVHBBS</span>
@@ -227,122 +239,103 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <img src="https://s2.loli.net/2024/04/03/m1jJn6SW3BcC8aq.webp" width="100" height="100" alt="nsoftkiller" />
       <span class="app-name">蚌埠极域</span>
     </a>
-    </div>
-    <div id="homepage" class="middle"> 
-      <div id="terminal">
-        <div id="terminal-header">
-          <div>
-            <div id="controls">
-              <i class="fa fa-window-minimize" style="font-size: 8px;"></i>
-              <i class="fa fa-window-restore" style="font-size: 10px;"></i>
-              <i class="fa fa-times" style="font-size: 14px;"></i>
-            </div>
-			<div style="margin: 0 auto; width: 100px;">tkm.icu</div>
+  </div>
+  <div id="homepage" class="middle">
+    <div id="terminal">
+      <div id="terminal-header">
+        <div>
+          <div id="controls">
+            <i class="fa fa-window-minimize" style="font-size: 8px;"></i>
+            <i class="fa fa-window-restore" style="font-size: 10px;"></i>
+            <i class="fa fa-times" style="font-size: 14px;"></i>
           </div>
+          <div style="margin: 0 auto; width: 100px;">tkm.icu</div>
         </div>
-        <div id="content">
-			<noscript>
-				<br>
-				<div>
-				<span class="red">root@tkm.icu</span>:<span class="blue">~</span># ./nojs.sh
-					<p>Please enable JavaScript to use this site.</p>
-				</div>
-			</noscript>
-		</div>
       </div>
-      <span class="taille"></span>
-    </div>
-    <div class="notification">
-          <span class="closebtn" onclick="this.parentElement.classList.add('hide');"><i class="fa fa-times" style="font-size: 14px;"></i></span>
-          <div class="notification-header">Attention!</div>
-	  <div class="notification-body">
-              <img src="https://s2.loli.net/2024/04/04/mkJTvZ59jgfq1tV.webp" alt="FreePalestine" style="object-fit: contain;"> <br>
-              The Israeli occupation of Palestine has caused thousands of children to suffer every day.<br> Consider helping them: <br>
-              <a href="https://www.pcrf.net/" target="_blank">PCRF</a> - 
-              <a href="https://help.unicef.org/donate-to-children" target="_blank">UNICEF</a> - 
-              <a href="https://donate.unrwa.org/gaza/~my-donation" target="_blank">UNRWA</a>
+      <div id="content">
+        <noscript>
+          <br>
+          <div>
+            <span class="red">root@tkm.icu</span>:<span class="blue">~</span># ./nojs.sh
+            <p>Please enable JavaScript to use this site.</p>
           </div>
+        </noscript>
+      </div>
     </div>
-	  	    <div id="copyright">
-		<script async>
-			function Year(number) { return (number < 1000) ? number + 1900 : number; }
-			document.write('© 2021-'+Year(new Date().getYear())+' 渟雲 - All Rights Reserved.');<!--However,this site is build by me.-->
-		</script>
-		    </div>
-    
-<script async>
-function updateTime() {
-  var now = new Date();
-  var hours = now.getHours();
-  var minutes = now.getMinutes();
-  minutes = minutes < 10 ? '0' + minutes : minutes;
-  var timeString = hours + ':' + minutes;
-  document.getElementById('time').textContent = timeString;
-}
-setInterval(updateTime, 1000);
-updateTime();
-</script>
-<script async>
-  let playState= true
-  function AutoPlay () {
-      return new Promise(resolve => {
-  if(playState){
-      let audio = document.createElement('music');
-      audio.src = "Makurunaame_inst.mp3"
-      audio.loop="loop"
-      audio.volume = 50
-      document.body.appendChild(audio);
-      let autoplay = true;
-      audio.play().then(() => {
-          autoplay = true;
-      }).catch(err => {
-          autoplay = false;
-      }).finally((e) => {
-          resolve(autoplay);
-      });
-  playState=false
-  }else{
-    resolve(false)
-  }
+    <span class="taille"></span>
+  </div>
+  <div class="notification">
+    <span class="closebtn" onclick="this.parentElement.classList.add('hide');"><i class="fa fa-times"
+        style="font-size: 14px;"></i></span>
+    <div class="notification-header">Attention!</div>
+    <div class="notification-body">
+      <img src="https://s2.loli.net/2024/04/04/mkJTvZ59jgfq1tV.webp" alt="FreePalestine" style="object-fit: contain;">
+      <br>
+      The Israeli occupation of Palestine has caused thousands of children to suffer every day.<br> Consider helping
+      them: <br>
+      <a href="https://www.pcrf.net/" target="_blank">PCRF</a> -
+      <a href="https://help.unicef.org/donate-to-children" target="_blank">UNICEF</a> -
+      <a href="https://donate.unrwa.org/gaza/~my-donation" target="_blank">UNRWA</a>
+    </div>
+  </div>
+  <div id="copyright">
+    <script async>
+      function Year(number) { return (number < 1000) ? number + 1900 : number; }
+      document.write('© 2021-' + Year(new Date().getYear()) + ' 渟雲 - All Rights Reserved.');<!--However,this site is build by me.-->
+    </script>
+  </div>
 
-  });
-}
+  <script async>
+    function updateTime() {
+      var now = new Date();
+      var hours = now.getHours();
+      var minutes = now.getMinutes();
+      minutes = minutes < 10 ? '0' + minutes : minutes;
+      var timeString = hours + ':' + minutes;
+      document.getElementById('time').textContent = timeString;
+    }
+    setInterval(updateTime, 1000);
+    updateTime();
+  </script>
 
-let audioInfo = {
-  autoplay: false,
-  AutoPlay () {
-      return AutoPlay()
-  },
-  setAutoPlayWhenClick () {
-      function setAutoPlay () {
-          audioInfo.autoplay = true;
-          document.removeEventListener('click', setAutoPlay);
-          document.removeEventListener('touchend', setAutoPlay);
-      }
-      document.addEventListener('click', setAutoPlay);
-      document.addEventListener('touchend', setAutoPlay);
-  },
-  init () {
-      audioInfo.AutoPlay().then(autoplay => {
-          if (!audioInfo.autoplay) {
-              audioInfo.autoplay = autoplay;
-          }
-      });
-      audioInfo.setAutoPlayWhenClick();
-  }
-};
-      document.addEventListener('click', ()=>{
-    audioInfo.init();
-      });
-       document.addEventListener('touchend', ()=>{
-      audioInfo.init();
-       });
-</script>
-    <!--<script src="static/js/jquery.min.js"></script>
+  <!--<script src="static/js/jquery.min.js"></script>
     <script src="static/js/jquery.nicescroll.min.js"></script>-->
-    <!--<script src="static/js/script-1610211579.js"></script>Yes,most of functions you want including in this .js-->
-    <!--<script defer src="static/js/rain.js"></script>-->
-    <script async src="static/combined.min.js"></script>
-    <script async src="static/terminal.min.js"></script>
-    </body>
+  <!--<script src="static/js/script-1610211579.js"></script>Yes,most of functions you want including in this .js-->
+  <!--<script defer src="static/js/rain.js"></script>-->
+  <script async src="static/combined.min.js"></script>
+  <script async src="static/terminal.min.js"></script>
+  <script async>  
+    const isEnableAutoplay = () => {
+      const context = new AudioContext()
+      if (context.state === 'running') {
+        return true
+      }
+      return false
+    }
+
+    window.onload = () => {
+      if (isEnableAutoplay()){
+        const audio = new Audio('Makurunaame_inst.mp3')
+        audio.loop = true
+        audio.play()
+      }
+      else {
+        const audio = new Audio('Makurunaame_inst.mp3')
+        audio.loop = true
+        document.addEventListener('click', () => {
+          audio.play()
+        })
+        document.addEventListener('touchstart', () => {
+          audio.play()
+        })
+        window.addEventListener('scroll', () => {
+          audio.play()
+        })
+      }
+    }</script>
+
+</body>
+<footer>
+</footer>
+
 </html>
