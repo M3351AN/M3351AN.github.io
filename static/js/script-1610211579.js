@@ -82,7 +82,7 @@ function bit_rol(d, _) {
 }
 var pMusic = document.getElementById("music");
 //pMusic.volume = 0.5;
-pMusic.load();
+//pMusic.load();
 var pMusicPlaying = 0;
 var sMonth = [
     "January",
@@ -133,7 +133,7 @@ const commands = {
 	help: 
 	{
 		cmd: 'help',
-		res: 'Available commands:<br><br># <span class="red">aboutme</span> - Some information about me.<br># <span class="red">clear</span> - Really, it just clear. <br># <span class="red">screenfetch</span> - Fetches system information in the terminal.<br># <span class="red">links</span> - Links for others sites.<br># <span class="red">music [play/stop/link]</span> - Just BG Music.<br># <span class="red">visitors</span> - How many times people visited this site.<br># <span class="red">whoami</span> - Info about you.<br># <span class="red">insta [Link]</span> - Get original instagram picture.'
+		res: 'Available commands:<br><br># <span class="red">aboutme</span> - Some information about me.<br># <span class="red">clear</span> - Really, it just clear. <br># <span class="red">screenfetch</span> - Fetches system information in the terminal.<br># <span class="red">links</span> - Links for others sites.<br># <span class="red">visitors</span> - How many times people visited this site.<br># <span class="red">whoami</span> - Info about you.<br># <span class="red">insta [Link]</span> - Get original instagram picture.'
 	}
 }
 
@@ -293,7 +293,7 @@ $('form').on('submit', function(e) {
 						res: '<div><p>' + res + '</p></div>'
 					});
 				}
-			} else if (vInput.startsWith("music")) {
+			} /*else if (vInput.startsWith("music")) {
 				if (vInput === "music play") {
 					if (pMusicPlaying == 1) {
 						launchCommandAsVisitor({
@@ -336,7 +336,7 @@ $('form').on('submit', function(e) {
 						res: '<div><p>[ <span class="red">tkm.icu</span> ] Usage: music [play/stop/link]</p></div>'
 					});
 				}
-			} /*else if (vInput.startsWith("friend")) {
+			} else if (vInput.startsWith("friend")) {
 				if (vInput === "friend joffrey") {
 					launchCommandAsVisitor({
 						cmd: vInput,
