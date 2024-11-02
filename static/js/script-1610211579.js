@@ -47,11 +47,6 @@ const commands = {
 		cmd:'luv',
 		res:'\x49 \x6c\x75\x76 \x75\x2e'
 	},
-      	diary:
-	{
-		cmd:'diary',
-		res:'<span class="red"><a href="https://raw.githubusercontent.com/M3351AN/db/main/diary" target="_blank"><u>diary</u></a></span>'
-	},
 	database:
 	{
 		cmd:'database',
