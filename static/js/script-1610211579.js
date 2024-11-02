@@ -3,7 +3,7 @@ All materials published here are protected by copyright and are expressly prohib
 */
 
 var enableKeys = false;
-
+/*
 $(function() {
     $(document).keydown(function(objEvent) {
         if (objEvent.ctrlKey && !enableKeys) {
@@ -79,7 +79,7 @@ function safe_add(d, _) {
 
 function bit_rol(d, _) {
     return d << _ | d >>> 32 - _;
-}
+}*/
 var pMusic = document.getElementById("music");
 //pMusic.volume = 0.5;
 //pMusic.load();
@@ -272,13 +272,13 @@ $('form').on('submit', function(e) {
 				if (typeof loginArray[2] !== "undefined") {
 					if (loginArray[2] === "visitor") {
 						res = '[ <span class="red">ERROR</span> ] You\'re already logged as Visitor!';
-					} else if (loginArray[2] === "root") {
+					} /*else if (loginArray[2] === "root") {
 						res = 'su: Authentication failure';
 						if (typeof loginArray[4] !== "undefined" && MD5(loginArray[4]) === "fecd7320435133a1bfedfad67947cfd6") {
 							root = 1;
 							res = '';
 						}
-					} else {
+					} */else {
 						res = 'tkm.icu: No passwd entry for user ' + loginArray[2] + '';
 					}
 					launchCommandAsVisitor({
