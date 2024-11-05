@@ -375,7 +375,7 @@ $('form').on('submit', function (e) {
 				const Shell = 'bash 5.0';
 				const Disk = '512MiB';
 				const CPU = 'Raspberry Pi RP2040 @ 133MHz';
-				const GPU = 'Adreno540';
+				const GPU = 'NOVIDIA GeFalse RT× 4090';
 				const RAM = '166MiB / 256MiB';
 				
 				const systemInfo = `
