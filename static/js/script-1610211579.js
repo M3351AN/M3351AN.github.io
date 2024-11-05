@@ -241,7 +241,7 @@ function GetAge(dateString) {
 $('form').on('submit', function (e) {
 	e.preventDefault();
 	try {
-		var vInput = $('input').val().toLowerCase();
+		var vInput = $('input').val().toLowerCase().trim().replace(/\s+/g, ' ');
 		if (root > 0) {
 			launchCommandAsRoot(commands[$('input').val()]);
 		} else {
@@ -369,13 +369,54 @@ $('form').on('submit', function (e) {
 					res: '<div><p>[ <span class="green">SUCCESS</span> ] Developer Mode: Activated!</p></div>'
 				});
 			} else if (vInput === "screenfetch") {
-				const OSVer = '1.12';
-				const Kernel = 'x86_64 Linux 5.2-amd64';
+				const OSVer = 'UnexistOS 1.14.514 LTS';
+				const Kernel = '5.10.227-FubUkia-6952d53';
+				const Packages = '3351';
 				const Shell = 'bash 5.0';
-				const Disk = '3M';
+				const Disk = '512MiB';
+				const CPU = 'Raspberry Pi RP2040 @ 133MHz';
+				const GPU = 'Adreno540';
+				const RAM = '166MiB / 256MiB';
+				
+				const systemInfo = `
+				<span class="red">visitor@tkm.icu</span><br>
+				<span class="red">OS:</span>${OSVer}<br>
+				<span class="red">Kernel:</span> ${Kernel}<br>
+				<span class="red">Uptime:</span> ${upTime}<br>
+				<span class="red">Packages:</span> ${Packages}<br>
+				<span class="red">Shell:</span> ${Shell}<br>
+				<span class="red">Disk:</span> ${Disk}<br>
+				<span class="red">CPU:</span> ${CPU}<br>
+				<span class="red">GPU:</span> ${GPU}<br>
+				<span class="red">RAM:</span> ${RAM}
+				`;
+				
+				const asciiArt = `
+<span class="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6666666666666&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><br>
+<span class="red">&nbsp;&nbsp;&nbsp;&nbsp;666666666666666666&nbsp;&nbsp;&nbsp;</span><br>
+<span class="red">&nbsp;&nbsp;6666666&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;666666&nbsp;&nbsp;</span><br>
+<span class="red">&nbsp;6666666666&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;66666&nbsp;</span><br>
+<span class="red">6666&nbsp;&nbsp;&nbsp;6666666&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6666</span><br>
+<span class="red">6666&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6666666&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6666</span><br>
+<span class="red">66666&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6666666&nbsp;&nbsp;6666</span><br>
+<span class="red">&nbsp;66666&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6666666666&nbsp;</span><br>
+<span class="red">&nbsp;&nbsp;6666666&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6666666&nbsp;&nbsp;</span><br>
+<span class="red">&nbsp;&nbsp;&nbsp;&nbsp;66666666666666666&nbsp;&nbsp;&nbsp;&nbsp;</span><br>
+<span class="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;666666666666&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><br>
+				`;
+				
+				const combinedOutput = `
+				<table>
+				  <tr>
+					<td style="vertical-align: top; padding-left: 10px;">${asciiArt}</td>
+					<td style="vertical-align: top; padding-left: 10px;">${systemInfo}</td>
+				  </tr>
+				</table>
+				`;
+				
 				launchCommandAsVisitor({
 					cmd: $('input').val(),
-					res: '<div><p><span class="red">visitor@tkm.icu</span><br><span class="red">OS:</span> tkm.icu ' + OSVer + '<br><span class="red">Kernel:</span> ' + Kernel + '<br><span class="red">Uptime:</span> ' + upTime + '<br><span class="red">Shell:</span> ' + Shell + '<br><span class="red">Disk:</span> ' + Disk + '</p></div>'
+					res: combinedOutput
 				});
 			} else if (vInput.trim() !== "") {
 				launchCommandAsVisitor(commands[vInput]);
@@ -408,47 +449,47 @@ let isDragging = false;
 let offsetX, offsetY;
 
 header.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    offsetX = e.clientX - terminal.offsetLeft;
-    offsetY = e.clientY - terminal.offsetTop;
-    document.addEventListener('mousemove', onMouseMove);
-    document.addEventListener('mouseup', onMouseUp);
+	isDragging = true;
+	offsetX = e.clientX - terminal.offsetLeft;
+	offsetY = e.clientY - terminal.offsetTop;
+	document.addEventListener('mousemove', onMouseMove);
+	document.addEventListener('mouseup', onMouseUp);
 });
 
 header.addEventListener('touchstart', (e) => {
-    isDragging = true;
-    const touch = e.touches[0];
-    offsetX = touch.clientX - terminal.offsetLeft;
-    offsetY = touch.clientY - terminal.offsetTop;
-    document.addEventListener('touchmove', onTouchMove);
-    document.addEventListener('touchend', onTouchEnd);
+	isDragging = true;
+	const touch = e.touches[0];
+	offsetX = touch.clientX - terminal.offsetLeft;
+	offsetY = touch.clientY - terminal.offsetTop;
+	document.addEventListener('touchmove', onTouchMove);
+	document.addEventListener('touchend', onTouchEnd);
 });
 
 function onMouseMove(e) {
-    if (isDragging) {
-        terminal.style.left = `${e.clientX - offsetX}px`;
-        terminal.style.top = `${e.clientY - offsetY}px`;
-    }
+	if (isDragging) {
+		terminal.style.left = `${e.clientX - offsetX}px`;
+		terminal.style.top = `${e.clientY - offsetY}px`;
+	}
 }
 
 function onTouchMove(e) {
-    if (isDragging) {
-        const touch = e.touches[0];
-        terminal.style.left = `${touch.clientX - offsetX}px`;
-        terminal.style.top = `${touch.clientY - offsetY}px`;
-    }
+	if (isDragging) {
+		const touch = e.touches[0];
+		terminal.style.left = `${touch.clientX - offsetX}px`;
+		terminal.style.top = `${touch.clientY - offsetY}px`;
+	}
 }
 
 function onMouseUp() {
-    isDragging = false;
-    document.removeEventListener('mousemove', onMouseMove);
-    document.removeEventListener('mouseup', onMouseUp);
+	isDragging = false;
+	document.removeEventListener('mousemove', onMouseMove);
+	document.removeEventListener('mouseup', onMouseUp);
 }
 
 function onTouchEnd() {
-    isDragging = false;
-    document.removeEventListener('touchmove', onTouchMove);
-    document.removeEventListener('touchend', onTouchEnd);
+	isDragging = false;
+	document.removeEventListener('touchmove', onTouchMove);
+	document.removeEventListener('touchend', onTouchEnd);
 }
 
 // Credits: M3351AN
