@@ -1,19 +1,19 @@
 @import url(css-OpenSans300400600700400itali.css);
 @import url(icon-MaterialIcons.css);
-@import url(css-Roboto400300500700400italic.css);
-@import url('css-Roboto400500700.css');
+/*@import url(css-Roboto400300500700400italic.css);
+@import url('css-Roboto400500700.css');*/
 @import url('all.css');
 
 @font-face {
 	font-family: 'Harmony Sans SC';
-	src: url('static/fonts/HarmonyOS_Sans_SC_Regular.ttf') format('truetype');
+	src: url('../fonts/HarmonyOS_Sans_SC_Regular.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'JetBrains Mono';
-	src: url('static/fonts/JetBrainsMono-Regular.woff2') format('woff2');
+	src: url('../fonts/JetBrainsMono-Regular.woff2') format('woff2');
 	font-weight: normal;
 	font-style: normal;
 }
