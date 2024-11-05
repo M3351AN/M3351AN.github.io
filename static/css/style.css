@@ -5,18 +5,19 @@
 @import url('all.css');
 
 @font-face {
-    font-family: 'Harmony Sans SC';
-    src: url('static/fonts/HarmonyOS_Sans_SC_Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'Harmony Sans SC';
+	src: url('static/fonts/HarmonyOS_Sans_SC_Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
 }
 
 @font-face {
-    font-family: 'JetBrains Mono';
-    src: url('static/fonts/JetBrainsMono-Regular.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'JetBrains Mono';
+	src: url('static/fonts/JetBrainsMono-Regular.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
 }
+
 * {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -302,7 +303,10 @@ body {
 	-webkit-backdrop-filter: blur(10px);
 	border-radius: .3rem;
 	box-shadow: 0 20px 60px 10px rgba(0, 0, 0, 0.33);
-	position: relative;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 	vertical-align: middle;
 }
 
@@ -387,7 +391,7 @@ body {
 }
 
 #copyright {
-    font-family: 'Harmony Sans SC', Arial, sans-serif;
+	font-family: 'Harmony Sans SC', Arial, sans-serif;
 	font-size: 0.75rem;
 	max-width: 100%;
 	max-height: 100%;
@@ -422,13 +426,13 @@ body {
 	display: block;
 	text-align: center;
 	margin-top: 5px;
-    color: white;
-    font-size: 1rem;
-    text-shadow: 
-        -1px -1px 0 #000,  
-         1px -1px 0 #000,
-        -1px  1px 0 #000,
-         1px  1px 0 #000;
+	color: white;
+	font-size: 1rem;
+	text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
 }
 
 .notification {

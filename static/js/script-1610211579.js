@@ -4,8 +4,8 @@ All materials published here are protected by copyright and are expressly prohib
 
 var enableKeys = false;
 
-$(function() {
-	$(document).keydown(function(objEvent) {
+$(function () {
+	$(document).keydown(function (objEvent) {
 		if (objEvent.ctrlKey && !enableKeys) {
 			if (objEvent.shiftKey) {
 				if (objEvent.keyCode == 73 || objEvent.keyCode == 74) return false; // Disable CTRL + SHIFT + I / J
@@ -18,7 +18,7 @@ $(function() {
 
 var root = 0;
 
-var MD5 = function(d) {
+var MD5 = function (d) {
 	result = M(V(Y(X(d), 8 * d.length)));
 	return result.toLowerCase();
 };
@@ -399,4 +399,33 @@ $('form').on('submit', function (e) {
 	}
 	$('input').val(''); $('#content').getNiceScroll(0).resize().doScrollTop($('#content')[0].scrollHeight, 0);
 })
+
+
+const terminal = document.getElementById('terminal');
+const header = document.getElementById('terminal-header');
+
+let isDragging = false;
+let offsetX, offsetY;
+
+header.addEventListener('mousedown', (e) => {
+	isDragging = true;
+	offsetX = e.clientX - terminal.offsetLeft;
+	offsetY = e.clientY - terminal.offsetTop;
+	document.addEventListener('mousemove', onMouseMove);
+	document.addEventListener('mouseup', onMouseUp);
+});
+
+function onMouseMove(e) {
+	if (isDragging) {
+		terminal.style.left = `${e.clientX - offsetX}px`;
+		terminal.style.top = `${e.clientY - offsetY}px`;
+	}
+}
+
+function onMouseUp() {
+	isDragging = false;
+	document.removeEventListener('mousemove', onMouseMove);
+	document.removeEventListener('mouseup', onMouseUp);
+}
+
 // Credits: M3351AN
