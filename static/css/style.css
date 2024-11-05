@@ -419,8 +419,8 @@ body {
 }
 
 .app-icon-link img {
-    display: block;
-    margin: 5px auto;
+	display: block;
+	margin: 5px auto;
 	width: 85px;
 	height: 85px;
 	border: none;
@@ -527,4 +527,56 @@ body {
 	padding: 15px 15px;
 	backdrop-filter: blur(10px);
 	-webkit-backdrop-filter: blur(10px);
+}
+
+.icon-container {
+	display: flex;
+	margin-left: 15px;
+	align-items: center;
+	height: 20px;
+}
+
+.icon-link {
+	display: flex;
+	align-items: center;
+	margin-right: 15px;
+	text-decoration: none;
+	color: white;
+	min-width: 100px;
+	max-width: fit-content;
+	border-radius: 5px;
+	justify-content: center;
+	background: rgba(229, 231, 232, 0.05);
+}
+
+.icon-link:hover {
+	background: rgba(29, 31, 32, 0.15);
+}
+
+.icon-title {
+	text-align: center;
+	width: 100%;
+}
+
+.time-right {
+	margin-left: auto;
+}
+
+.site-title {
+	display: block;
+	margin: 0;
+	align-items: center;
+}
+
+.site-icon {
+	vertical-align: middle;
+	width: 20px;
+	height: 20px;
+	margin-right: 5px;
+}
+
+.site-name {
+	vertical-align: middle;
+	font-size: 1rem;
+	color: white;
 }
