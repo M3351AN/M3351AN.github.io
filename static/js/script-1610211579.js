@@ -408,24 +408,47 @@ let isDragging = false;
 let offsetX, offsetY;
 
 header.addEventListener('mousedown', (e) => {
-	isDragging = true;
-	offsetX = e.clientX - terminal.offsetLeft;
-	offsetY = e.clientY - terminal.offsetTop;
-	document.addEventListener('mousemove', onMouseMove);
-	document.addEventListener('mouseup', onMouseUp);
+    isDragging = true;
+    offsetX = e.clientX - terminal.offsetLeft;
+    offsetY = e.clientY - terminal.offsetTop;
+    document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('mouseup', onMouseUp);
+});
+
+header.addEventListener('touchstart', (e) => {
+    isDragging = true;
+    const touch = e.touches[0];
+    offsetX = touch.clientX - terminal.offsetLeft;
+    offsetY = touch.clientY - terminal.offsetTop;
+    document.addEventListener('touchmove', onTouchMove);
+    document.addEventListener('touchend', onTouchEnd);
 });
 
 function onMouseMove(e) {
-	if (isDragging) {
-		terminal.style.left = `${e.clientX - offsetX}px`;
-		terminal.style.top = `${e.clientY - offsetY}px`;
-	}
+    if (isDragging) {
+        terminal.style.left = `${e.clientX - offsetX}px`;
+        terminal.style.top = `${e.clientY - offsetY}px`;
+    }
+}
+
+function onTouchMove(e) {
+    if (isDragging) {
+        const touch = e.touches[0];
+        terminal.style.left = `${touch.clientX - offsetX}px`;
+        terminal.style.top = `${touch.clientY - offsetY}px`;
+    }
 }
 
 function onMouseUp() {
-	isDragging = false;
-	document.removeEventListener('mousemove', onMouseMove);
-	document.removeEventListener('mouseup', onMouseUp);
+    isDragging = false;
+    document.removeEventListener('mousemove', onMouseMove);
+    document.removeEventListener('mouseup', onMouseUp);
+}
+
+function onTouchEnd() {
+    isDragging = false;
+    document.removeEventListener('touchmove', onTouchMove);
+    document.removeEventListener('touchend', onTouchEnd);
 }
 
 // Credits: M3351AN

@@ -407,19 +407,28 @@ body {
 .app-container {
 	vertical-align: top;
 	margin: 10px;
+	width: 100px;
+	height: 120px;
 	display: inline-block;
 }
 
+.app-container:hover {
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+}
+
 .app-icon-link img {
-	width: 100px;
-	height: 100px;
+    display: block;
+    margin: 5px auto;
+	width: 85px;
+	height: 85px;
 	border: none;
 	outline: none;
 	border-radius: 15px;
 }
 
 .app-icon-link:hover img {
-	opacity: 0.8;
+	opacity: 0.85;
 }
 
 .app-name {
