@@ -93,6 +93,9 @@ All materials published here are protected by copyright and are expressly prohib
     //notification.classList.add('show');
     //});
   </script>
+  
+  <script async type="application/javascript" src="https://api64.ipify.org?format=jsonp&callback=getIP"></script>
+  
   <script async type="application/javascript">
     function getIP(json) {
       visitorIP = json.ip;
@@ -100,17 +103,6 @@ All materials published here are protected by copyright and are expressly prohib
     }
   </script>
 
-  <script async type="application/javascript" src="https://api64.ipify.org?format=jsonp&callback=getIP"></script>
-
-  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display: none;">
-    <defs>
-      <filter id="grainy-blur">
-        <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="5" result="noise" />
-        <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" />
-        <feGaussianBlur stdDeviation="20" />
-      </filter>
-    </defs>
-  </svg>
   <style>
     .rain {
       overflow: hidden;
@@ -314,7 +306,7 @@ All materials published here are protected by copyright and are expressly prohib
   <script defer src="static/js/rain.js"></script>-->
   <script async src="static/combined.min.js"></script>
   <script async src="static/terminal.min.js"></script>
-  <script async>
+  <script async>  
     const isEnableAutoplay = () => {
       const context = new AudioContext()
       if (context.state === 'running') {
@@ -324,7 +316,7 @@ All materials published here are protected by copyright and are expressly prohib
     }
 
     window.onload = () => {
-      if (isEnableAutoplay()) {
+      if (isEnableAutoplay()){
         const audio = new Audio('Makurunaame_inst.mp3')
         audio.loop = true
         audio.play()
