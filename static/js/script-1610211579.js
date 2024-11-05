@@ -3,7 +3,7 @@ All materials published here are protected by copyright and are expressly prohib
 */
 
 var enableKeys = false;
-/*
+
 $(function() {
 	$(document).keydown(function(objEvent) {
 		if (objEvent.ctrlKey && !enableKeys) {
@@ -79,7 +79,7 @@ function safe_add(d, _) {
 
 function bit_rol(d, _) {
 	return d << _ | d >>> 32 - _;
-}*/
+}
 var pMusicPlaying = 0;
 var sMonth = [
 	"January",
@@ -110,7 +110,7 @@ const commands = {
 	aboutme:
 	{
 		cmd: 'aboutme',
-		res: 'About Me:<br># <span class="red">Real Name:</span>guess;D<br># <span class="red">Nick Name:</span> Ukia|M3351AN|Crespy|渟雲 etc. <br># <span class="red">Born:</span> ' + sMonth["7"] + ' 14 2K06 <span class="red">(Age: ' + GetAge("2006-08-14") + ')</span><br># <span class="red">Country:</span> Born in Mongolia, live in China<br><br>Bio:<br># <span class="red">Programming:</span> HTML, CSS, JS, LUA, C, C++, C#, VB.<br># <span class="red">Languages:</span><br>- Chinese <span class="red">(National)</span><br>- Mongolian(Cyrillic only) <span class="red">(Common)</span><br>- English <span class="red">(Intermediate)</span><br>- Indonesian <span class="red">(Employees at IndiHomePaket[joking])</span><br>- Japanese <span class="red">(Basic)</span><br>- Cantonese <span class="red">(Hometown)</span><br>- Vietnamese <span class="red">(Neighbor)</span>'
+		res: 'About Me:<br># <span class="red">Real Name:</span>guess;D<br># <span class="red">Nick Name:</span> Ukia|M3351AN|Crespy|渟雲 etc. <br># <span class="red">Born:</span> ' + sMonth["7"] + ' 14 2K06 <span class="red">(Age: ' + GetAge("2006-08-14") + ')</span><br>Bio:<br># <span class="red">Programming:</span> HTML, CSS, JS, LUA, C, C++, C#, VB.<br># <span class="red">Languages:</span><br>- Chinese <span class="red">(National)</span><br>- Mongolian(Cyrillic only) <span class="red">(Common)</span><br>- English <span class="red">(Intermediate)</span><br>- Indonesian <span class="red">(Employees at IndiHomePaket[joking])</span><br>- Japanese <span class="red">(Basic)</span><br>- Cantonese <span class="red">(Hometown)</span><br>- Vietnamese <span class="red">(Neighbor)</span>'
 	},
 	links:
 	{
