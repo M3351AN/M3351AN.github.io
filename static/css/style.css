@@ -413,6 +413,7 @@ body {
 }
 
 .app-container:hover {
+	background: rgba(29, 31, 32, 0.15);
 	backdrop-filter: blur(10px);
 	-webkit-backdrop-filter: blur(10px);
 }
