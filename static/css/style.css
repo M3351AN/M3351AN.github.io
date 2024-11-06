@@ -6,14 +6,14 @@
 
 @font-face {
 	font-family: 'Harmony Sans SC';
-	src: url('../fonts/HarmonyOS_Sans_SC_Regular.ttf') format('truetype');
+	src: url('../font/HarmonyOS_Sans_SC_Regular.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'JetBrains Mono';
-	src: url('../fonts/JetBrainsMono-Regular.woff2') format('woff2');
+	src: url('../font/JetBrainsMono-Regular.woff2') format('woff2');
 	font-weight: normal;
 	font-style: normal;
 }
