@@ -1,7 +1,5 @@
 name: CSS Minify and Merge
 
-name: Optimize Assets
-
 on:
   push:
     paths:
@@ -13,21 +11,19 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v2
 
     - name: Set up Node.js
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v2
       with:
         node-version: '14'
 
     - name: Install dependencies
-      run: npm install cssnano-cli uglify-js
+      run: npm install cssnano-cli
 
-    - name: Minify CSS
-      run: npx cssnano static/css/style.css static/css/style.min.css
-
-    - name: Minify JavaScript
-      run: npx uglify-js static/js/script.js -o static/js/script.min.js
+    - name: Merge and Minify CSS
+      run: |
+        npx cssnano src/style.css dist/style.min.css
 
     - name: Commit and Push changes
       env:
@@ -35,6 +31,7 @@ jobs:
       run: |
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git add static/css/style.min.css static/js/script.min.js
-        git commit -m 'Minify CSS and JavaScript files'
+        git add dist/style.min.css
+        git commit -m 'Minify and merge CSS files'
         git push
+        
