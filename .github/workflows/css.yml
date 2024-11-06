@@ -13,10 +13,10 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Set up Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v4
       with:
         node-version: '14'
 
@@ -37,32 +37,4 @@ jobs:
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
         git add static/css/style.min.css static/js/script.min.js
         git commit -m 'Minify CSS and JavaScript files'
-        git push
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
-
-    - name: Install dependencies
-      run: npm install cssnano-cli
-
-    - name: Merge and Minify CSS
-      run: |
-        npx cssnano src/style.css dist/style.min.css
-
-    - name: Commit and Push changes
-      run: |
-        git config --global user.name 'github-actions[bot]'
-        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git add dist/style.min.css
-        git commit -m 'Minify and merge CSS files'
         git push
