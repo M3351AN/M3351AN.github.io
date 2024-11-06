@@ -476,12 +476,14 @@ All materials published here are protected by copyright and are expressly prohib
         setTimeout(waitForStats, 100);
       }
     }
-    //window.addEventListener('load', (event) => {
-    //var notification = document.querySelector('.notification');
-    //notification.classList.add('show');
-    //});
-  </script>
 
+  </script>
+  <script defer>
+    window.addEventListener('load', (event) => {
+    var notification = document.querySelector('.notification');
+    notification.classList.add('show');
+    });
+  </script>
   <script async type="application/javascript" src="https://api64.ipify.org?format=jsonp&callback=getIP"></script>
 
   <script async type="application/javascript">
@@ -502,7 +504,6 @@ All materials published here are protected by copyright and are expressly prohib
     }
 
     window.onload = () => {
-      document.getElementById('notification').classList.add('show');
       if (isEnableAutoplay()) {
         const audio = new Audio('Makurunaame_inst.mp3')
         audio.volume = 0.025
