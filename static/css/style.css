@@ -338,8 +338,8 @@ body {
 	line-height: 30px;
 	background-color: rgba(29, 31, 32, 1.0);
 	padding: 5px;
-    overflow: hidden;
-    border-radius: 5px 5px 0 0;
+	overflow: hidden;
+	border-radius: 5px 5px 0 0;
 	vertical-align: center;
 }
 
