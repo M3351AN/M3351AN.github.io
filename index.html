@@ -27,81 +27,7 @@ All materials published here are protected by copyright and are expressly prohib
   <!--<link rel="stylesheet" href="static/css/fontawesome.min.css">-->
   <script async src="static/js/busuanzi.js"></script>
   <span id="busuanzi_value_site_pv" style="display: none;"></span>
-  <script src="static/js/csstats.js"></script>
-  <script defer>
-    var visits;
-    var visitorIP;
-    var visitorCountry = "REDACTED FOR PRIVACY"; var visitorCountryCode = "N/A";
-    var lastCountry0 = "N/A";
-    var lastCountry1 = "N/A";
-    var lastCountry2 = "N/A";
-    var lastCountry3 = "N/A";
-    var lastCountry4 = "N/A";
-    var lastUpdate;
-    var upTime;
-    getCS();
-    getVisits();
-    fetchGit();
-    getGit();
-    waitForStats();
 
-    setInterval(getGit, 30000);
-    function getVisits() {
-      var pvElement = document.getElementById('busuanzi_value_site_pv');
-      if (pvElement && pvElement.textContent) {
-        visits = pvElement.textContent;
-      } else {
-        setTimeout(getVisits, 100);
-      }
-    }
-
-    function fetchGit() {
-      const apiURL = 'https://api.github.com/repos/M3351AN/M3351AN.github.io';
-
-      fetch(apiURL)
-        .then(response => response.json())
-        .then(repo => {
-          lastUpdate = new Date(repo.pushed_at);
-          console.log(lastUpdate);
-        })
-        .catch(error => console.error('error', error));
-    }
-    function getGit() {
-      if (lastUpdate) {
-        const now = new Date();
-        const timeDiff = now - lastUpdate;
-        let seconds = Math.floor(timeDiff / 1000);
-        let minutes = Math.floor(seconds / 60);
-        let hours = Math.floor(minutes / 60);
-        minutes = minutes % 60;
-        upTime = `${hours} h ${minutes} m `;
-        console.log(upTime);
-      } else {
-        setTimeout(getGit, 100);
-      }
-    }
-
-    function waitForStats() {
-      if (nickName && visitorIP && visits && upTime) {
-        launchCommandAsRoot('./welcome.sh');
-      } else {
-        setTimeout(waitForStats, 100);
-      }
-    }
-    //window.addEventListener('load', (event) => {
-    //var notification = document.querySelector('.notification');
-    //notification.classList.add('show');
-    //});
-  </script>
-
-  <script async type="application/javascript" src="https://api64.ipify.org?format=jsonp&callback=getIP"></script>
-
-  <script async type="application/javascript">
-    function getIP(json) {
-      visitorIP = json.ip;
-      console.log(visitorIP);
-    }
-  </script>
   <style>
     #loading-mask {
       position: fixed;
@@ -489,6 +415,81 @@ All materials published here are protected by copyright and are expressly prohib
   <script src="static/js/script-1610211579.js"></script>
   <script defer src="static/js/rain.js"></script>-->
   <script async src="static/combined.min.js"></script>
+  <script src="static/js/csstats.js"></script>
+  <script defer>
+    var visits;
+    var visitorIP;
+    var visitorCountry = "REDACTED FOR PRIVACY"; var visitorCountryCode = "N/A";
+    var lastCountry0 = "N/A";
+    var lastCountry1 = "N/A";
+    var lastCountry2 = "N/A";
+    var lastCountry3 = "N/A";
+    var lastCountry4 = "N/A";
+    var lastUpdate;
+    var upTime;
+    getCS();
+    getVisits();
+    fetchGit();
+    getGit();
+    waitForStats();
+
+    setInterval(getGit, 30000);
+    function getVisits() {
+      var pvElement = document.getElementById('busuanzi_value_site_pv');
+      if (pvElement && pvElement.textContent) {
+        visits = pvElement.textContent;
+      } else {
+        setTimeout(getVisits, 100);
+      }
+    }
+
+    function fetchGit() {
+      const apiURL = 'https://api.github.com/repos/M3351AN/M3351AN.github.io';
+
+      fetch(apiURL)
+        .then(response => response.json())
+        .then(repo => {
+          lastUpdate = new Date(repo.pushed_at);
+          console.log(lastUpdate);
+        })
+        .catch(error => console.error('error', error));
+    }
+    function getGit() {
+      if (lastUpdate) {
+        const now = new Date();
+        const timeDiff = now - lastUpdate;
+        let seconds = Math.floor(timeDiff / 1000);
+        let minutes = Math.floor(seconds / 60);
+        let hours = Math.floor(minutes / 60);
+        minutes = minutes % 60;
+        upTime = `${hours} h ${minutes} m `;
+        console.log(upTime);
+      } else {
+        setTimeout(getGit, 100);
+      }
+    }
+
+    function waitForStats() {
+      if (nickName && visitorIP && visits && upTime) {
+        launchCommandAsRoot('./welcome.sh');
+      } else {
+        setTimeout(waitForStats, 100);
+      }
+    }
+    //window.addEventListener('load', (event) => {
+    //var notification = document.querySelector('.notification');
+    //notification.classList.add('show');
+    //});
+  </script>
+
+  <script async type="application/javascript" src="https://api64.ipify.org?format=jsonp&callback=getIP"></script>
+
+  <script async type="application/javascript">
+    function getIP(json) {
+      visitorIP = json.ip;
+      console.log(visitorIP);
+    }
+  </script>
   <script defer src="static/terminal.min.js"></script>
 
   <script async>
@@ -523,7 +524,7 @@ All materials published here are protected by copyright and are expressly prohib
       }
     }
   </script>
-  <script defer>
+  <script>
     window.addEventListener('load', function () {
       var loadingMask = document.getElementById('loading-mask');
       loadingMask.classList.add('hidden');

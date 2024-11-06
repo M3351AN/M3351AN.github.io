@@ -4,9 +4,18 @@
 @import url('css-Roboto400500700.css');*/
 @import url('all.css');
 
+/*
 @font-face {
 	font-family: 'Harmony Sans SC';
 	src: url('../font/HarmonyOS_Sans_SC_Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+*/
+
+@font-face {
+	font-family: 'Harmony Sans';
+	src: url('../font/HarmonyOS_Sans_Regular.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -276,8 +285,10 @@ textarea.nostyle {
 
 body {
 	margin: 0;
+	/*
 	font-family: 'Harmony Sans SC', Arial, sans-serif;
-
+	*/
+	font-family: 'Harmony Sans', Arial, sans-serif;
 	background: url("https://s2.loli.net/2024/04/03/8i7g1mDksM2hqFI.webp");
 	background-position: left center;
 	background-size: cover;
@@ -391,7 +402,7 @@ body {
 }
 
 #copyright {
-	font-family: 'Harmony Sans SC', Arial, sans-serif;
+	font-family: 'JetBrains Mono', monospace;
 	font-size: 0.75rem;
 	max-width: 100%;
 	max-height: 100%;
