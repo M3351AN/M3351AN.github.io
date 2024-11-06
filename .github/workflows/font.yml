@@ -22,6 +22,8 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install fonttools brotli zopfli
+        sudo apt-get update
+        sudo apt-get install -y woff2
 
     - name: Optimize TTF fonts
       run: |
