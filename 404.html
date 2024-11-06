@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>404 NOT FOUND</title>
+  <link rel="shortcut icon" href="favicon.ico">
+  <style>
+    a {
+      color: inherit;
+    }
+
+    .termi {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 60%;
+      padding: 0 20%;
+      background-color: #010101;
+      color: #00ee00;
+      font-family: consolas;
+      word-wrap: break-all;
+    }
+
+    .termi #title {
+      text-align: center;
+      width: 100%;
+      font-size: 6em;
+    }
+
+    .termi .text {
+      display: inline-block;
+    }
+
+    .termi .cursor {
+      display: inline;
+      animation: blink 0.75s linear infinite;
+    }
+
+
+    @keyframes blink {
+      0% {
+        opacity: 0;
+      }
+
+      33% {
+        opacity: 1;
+      }
+
+      66% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+  </style>
+  <script>
+    window.console = window.console || function (t) { };
+  </script>
+  <script>
+    if (document.location.search.match(/type=embed/gi)) {
+      window.parent.postMessage("resize", "*");
+    }
+  </script>
+</head>
+
+<body translate="no">
+  <div class='termi'>
+    <h1 id='title'>404</h1>
+    <a href='https://tkm.icu/' class='text'>Back</a>
+    <span class='cursor'>_</span>
+    <p>© 2021 - NOW <a href="https://tkm.icu/">渟雲</a> - All Rights Reserved.</p>
+    <!--However,this site is build by me.-->
+  </div>
+  <script src='js/jquery.min.js'></script>
+</body>
+
+</html>
