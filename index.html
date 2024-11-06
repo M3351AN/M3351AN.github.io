@@ -81,21 +81,21 @@ All materials published here are protected by copyright and are expressly prohib
     }
 
     .spinner-dot {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    animation: animate 3.5s linear infinite;
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      animation: animate 3.5s linear infinite;
     }
 
     .spinner-dot::before {
-    position: absolute;
-    content: "";
-    background-color: #FFF;
-    width: 10px;
-    height: 10px;
-    bottom: 0;
-    left: calc(50% - 5px);
-    border-radius: 50%;
+      position: absolute;
+      content: "";
+      background-color: #FFF;
+      width: 10px;
+      height: 10px;
+      bottom: 0;
+      left: calc(50% - 5px);
+      border-radius: 50%;
     }
 
     .spinner-dot:nth-child(1) {
@@ -132,22 +132,25 @@ All materials published here are protected by copyright and are expressly prohib
 
     @keyframes animate {
 
-74%{
-    transform: rotate(600deg);
-}
-79% {
-    transform: rotate(720deg);
-    opacity: 1;
-}
-80% {
-    transform: rotate(720deg);
-    opacity: 0;
-}
-100% {
-    transform: rotate(810deg);
-    opacity: 0;
-}
-}
+      74% {
+        transform: rotate(600deg);
+      }
+
+      79% {
+        transform: rotate(720deg);
+        opacity: 1;
+      }
+
+      80% {
+        transform: rotate(720deg);
+        opacity: 0;
+      }
+
+      100% {
+        transform: rotate(810deg);
+        opacity: 0;
+      }
+    }
 
 
     .rain {
@@ -487,15 +490,26 @@ All materials published here are protected by copyright and are expressly prohib
         const audio = new Audio('Makurunaame_inst.mp3')
         audio.volume = 0.025
         audio.loop = true
-        document.addEventListener('click', () => {
-          audio.play()
-        })
-        document.addEventListener('touchstart', () => {
-          audio.play()
-        })
-        window.addEventListener('scroll', () => {
-          audio.play()
-        })
+        document.addEventListener('click', function handleClick() {
+          audio.play();
+          document.removeEventListener('click', handleClick);
+          document.removeEventListener('touchstart', handleTouchStart);
+          window.removeEventListener('scroll', handleScroll);
+        });
+
+        document.addEventListener('touchstart', function handleTouchStart() {
+          audio.play();
+          document.removeEventListener('click', handleClick);
+          document.removeEventListener('touchstart', handleTouchStart);
+          window.removeEventListener('scroll', handleScroll);
+        });
+
+        window.addEventListener('scroll', function handleScroll() {
+          audio.play();
+          document.removeEventListener('click', handleClick);
+          document.removeEventListener('touchstart', handleTouchStart);
+          window.removeEventListener('scroll', handleScroll);
+        });
       }
     }
   </script>
