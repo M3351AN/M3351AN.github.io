@@ -23,7 +23,7 @@ jobs:
 
     - name: Merge and Minify CSS
       run: |
-        npx cssnano src/style.css dist/style.min.css
+        npx cssnano static/css/style.css static/style.min.css
 
     - name: Commit and Push changes
       env:
@@ -31,7 +31,7 @@ jobs:
       run: |
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git add dist/style.min.css
+        git add static/style.min.css
         git commit -m 'Minify and merge CSS files'
         git push
         
