@@ -1,8 +1,8 @@
-@import url(css-OpenSans300400600700400itali.css);
+/*@import url(css-OpenSans300400600700400itali.css);
 @import url(icon-MaterialIcons.css);
-/*@import url(css-Roboto400300500700400italic.css);
-@import url('css-Roboto400500700.css');*/
-@import url('all.css');
+@import url(css-Roboto400300500700400italic.css);
+@import url('css-Roboto400500700.css');
+@import url('all.css');*/
 
 /*
 @font-face {
@@ -337,11 +337,10 @@ body {
 	height: 30px;
 	line-height: 30px;
 	background-color: rgba(29, 31, 32, 1.0);
-}
-
-#controls {
-	float: right;
-	margin-right: 8px;
+	padding: 5px;
+    overflow: hidden;
+    border-radius: 5px 5px 0 0;
+	vertical-align: center;
 }
 
 #content {
@@ -458,6 +457,30 @@ body {
 		1px 1px 0 #000;
 }
 
+@keyframes slideIn {
+	0% {
+		right: -20px;
+		opacity: 0;
+	}
+
+	100% {
+		right: 20px;
+		opacity: 1;
+	}
+}
+
+@keyframes slideOut {
+	0% {
+		right: 20px;
+		opacity: 1;
+	}
+
+	100% {
+		right: -20px;
+		opacity: 0;
+	}
+}
+
 .notification {
 	position: fixed;
 	bottom: 20px;
@@ -483,43 +506,6 @@ body {
 
 .notification-body {
 	font-size: 14px;
-}
-
-.closebtn {
-	position: absolute;
-	top: 0;
-	right: 10px;
-	color: white;
-	font-weight: bold;
-	cursor: pointer;
-}
-
-.closebtn:hover {
-	color: #ccc;
-}
-
-@keyframes slideIn {
-	0% {
-		right: -20px;
-		opacity: 0;
-	}
-
-	100% {
-		right: 20px;
-		opacity: 1;
-	}
-}
-
-@keyframes slideOut {
-	0% {
-		right: 20px;
-		opacity: 1;
-	}
-
-	100% {
-		right: -20px;
-		opacity: 0;
-	}
 }
 
 .notification.show {
@@ -592,4 +578,32 @@ body {
 	vertical-align: middle;
 	font-size: 1rem;
 	color: white;
+}
+
+.button {
+	display: inline-block;
+	float: left;
+	border-radius: 50%;
+	width: 15px;
+	height: 15px;
+	margin-right: 5px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor: pointer;
+}
+
+.close {
+	background: #fc635d;
+}
+
+.min {
+	background: #fdbc40;
+}
+
+.max {
+	background: #34c84a;
 }

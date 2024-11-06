@@ -24,6 +24,7 @@ All materials published here are protected by copyright and are expressly prohib
   <title>渟雲 Teikumo,te quiero mucho!</title>
 
   <link rel="stylesheet" href="static/style.min.css">
+  <!--<link rel="stylesheet" href="static/css/style.css">-->
   <link rel="stylesheet" href="static/css/fontawesome.min.css">
   <!--<script async src="static/js/busuanzi.js"></script>-->
   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -354,12 +355,10 @@ All materials published here are protected by copyright and are expressly prohib
     <div id="terminal">
       <div id="terminal-header">
         <div>
-          <div id="controls">
-            <i class="fa fa-window-minimize" style="font-size: 8px;"></i>
-            <i class="fa fa-window-restore" style="font-size: 10px;"></i>
-            <i class="fa fa-times" style="font-size: 14px;"></i>
-          </div>
-          <div style="margin: 0 auto; width: 100px;">tkm.icu</div>
+          <span class="close button"></span>
+          <span class="min button"></span>
+          <span class="max button"></span>
+          <!--<div style="margin: auto; width: 50px;">tkm.icu</div>-->
         </div>
       </div>
       <div id="content">
@@ -375,8 +374,7 @@ All materials published here are protected by copyright and are expressly prohib
     <span class="taille"></span>
   </div>
   <div class="notification">
-    <span class="closebtn" onclick="this.parentElement.classList.add('hide');"><i class="fa fa-times"
-        style="font-size: 14px;"></i></span>
+    <span class="close button" onclick="this.parentElement.classList.add('hide');"></span><br>
     <div class="notification-header">Attention!</div>
     <div class="notification-body">
       <img src="https://s2.loli.net/2024/04/04/mkJTvZ59jgfq1tV.webp" alt="FreePalestine" style="object-fit: contain;">
@@ -391,8 +389,8 @@ All materials published here are protected by copyright and are expressly prohib
   <div id="copyright">
     <script async>
       function Year(number) { return (number < 1000) ? number + 1900 : number; }
-      document.write('© 2021-' + Year(new Date().getYear()) + ' 渟雲 - All Rights Reserved.');<!--However,this site is build by me.-->
-    </script>
+      document.write('© 2021-' + Year(new Date().getYear()) + ' 渟雲 - All Rights Reserved.');
+    </script><!--However,this site is build by me.-->
   </div>
 
   <script defer>
@@ -503,6 +501,7 @@ All materials published here are protected by copyright and are expressly prohib
     }
 
     window.onload = () => {
+      document.getElementById('notification').classList.add('show');
       if (isEnableAutoplay()) {
         const audio = new Audio('Makurunaame_inst.mp3')
         audio.volume = 0.025
