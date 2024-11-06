@@ -1,0 +1,40 @@
+name: Optimize Fonts
+
+on:
+  push:
+    paths:
+      - 'static/font/*'
+
+jobs:
+  optimize-fonts:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install fonttools and woff2
+      run: |
+        python -m pip install --upgrade pip
+        pip install fonttools brotli zopfli
+
+    - name: Optimize TTF fonts
+      run: |
+        find . -name "*.ttf" -exec pyftsubset {} --output-file={} --flavor=ttf --layout-features='*' --glyphs='*' --drop-tables+=GSUB,GDEF,GPOS --desubroutinize \;
+
+    - name: Optimize WOFF2 fonts
+      run: |
+        find . -name "*.woff2" -exec woff2_compress {} \;
+
+    - name: Commit and Push changes
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git add .
+        git commit -m 'Optimize font files'
+        git push

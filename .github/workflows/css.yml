@@ -1,0 +1,34 @@
+name: CSS Minify and Merge
+
+on:
+  push:
+    paths:
+      - 'static/css/*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install dependencies
+      run: npm install cssnano-cli
+
+    - name: Merge and Minify CSS
+      run: |
+        npx cssnano src/style.css dist/style.min.css
+
+    - name: Commit and Push changes
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git add dist/style.min.css
+        git commit -m 'Minify and merge CSS files'
+        git push
