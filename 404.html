@@ -56,17 +56,13 @@
       }
     }
   </style>
-  <script async>
-    window.console = window.console || function (t) { };
-
-    document.addEventListener('DOMContentLoaded', function () {
-      var userLang = navigator.language || navigator.userLanguage;
-      if (!userLang.startsWith('zh')) {
-        setTimeout(function () {
-          window.location.href = 'roc404.html';
-        }, 500);
-      }
-    });
+  <script>
+    var userLang = navigator.language || navigator.userLanguage;
+    if (userLang.startsWith('zh')) {
+      setTimeout(function () {
+        window.location.href = 'roc404.html';
+      }, 500);
+    }
   </script>
   <script>
     window.console = window.console || function (t) { };
