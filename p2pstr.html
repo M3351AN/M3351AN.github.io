@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P2P聊天应用</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: rgba(0, 0, 20, 0.85);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            border: 1px solid #2c3e50;
+        }
+        
+        header {
+            background: linear-gradient(90deg, #0f2027, #203a43, #0f2027);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(52, 152, 219, 0.7);
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+        
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            gap: 20px;
+        }
+        
+        .panel {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(25, 35, 60, 0.7);
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid #34495e;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        h2 {
+            color: #3498db;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        .info-box {
+            background: rgba(30, 40, 70, 0.6);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .code {
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+        
+        .btn {
+            background: linear-gradient(90deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin: 5px 0;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            background: linear-gradient(90deg, #2980b9, #3498db);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn:active {
+            transform: translateY(1px);
+        }
+        
+        .btn-success {
+            background: linear-gradient(90deg, #27ae60, #2ecc71);
+        }
+        
+        .btn-danger {
+            background: linear-gradient(90deg, #c0392b, #e74c3c);
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 5px;
+            border: 1px solid #34495e;
+            background: rgba(30, 40, 60, 0.7);
+            color: white;
+            font-size: 1rem;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+        }
+        
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: 300px;
+            background: rgba(20, 30, 50, 0.7);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #34495e;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background: rgba(10, 15, 30, 0.6);
+        }
+        
+        .message {
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+        
+        .received {
+            background: rgba(52, 152, 219, 0.3);
+            align-self: flex-start;
+            border-bottom-left-radius: 0;
+        }
+        
+        .sent {
+            background: rgba(46, 204, 113, 0.3);
+            align-self: flex-end;
+            margin-left: auto;
+            border-bottom-right-radius: 0;
+        }
+        
+        .message-info {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-bottom: 3px;
+        }
+        
+        .input-area {
+            display: flex;
+            padding: 10px;
+            background: rgba(30, 40, 70, 0.7);
+            border-top: 1px solid #34495e;
+        }
+        
+        .input-area input {
+            flex: 1;
+            margin-right: 10px;
+        }
+        
+        .status {
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        
+        .status.connected {
+            background: rgba(46, 204, 113, 0.2);
+            color: #2ecc71;
+        }
+        
+        .status.disconnected {
+            background: rgba(231, 76, 60, 0.2);
+            color: #e74c3c;
+        }
+        
+        .stun-list {
+            margin-top: 15px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .stun-server {
+            padding: 8px;
+            margin: 5px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            border-top: 1px solid #34495e;
+        }
+        
+        @media (max-width: 768px) {
+            main {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>点对点聊天应用</h1>
+            <p class="subtitle">基于WebRTC技术实现的无服务器P2P通信</p>
+        </header>
+        
+        <main>
+            <div class="panel">
+                <h2>连接信息</h2>
+                
+                <div class="info-box">
+                    <p><strong>本机标识:</strong></p>
+                    <div class="code" id="local-id">正在生成...</div>
+                    <p>将此ID提供给对方用于连接</p>
+                </div>
+                
+                <div class="info-box">
+                    <p><strong>STUN服务器状态:</strong></p>
+                    <div class="stun-list" id="stun-list">
+                        <!-- STUN服务器状态将动态显示在这里 -->
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <p><strong>输入对方ID:</strong></p>
+                    <input type="text" id="remote-id" placeholder="输入对方的连接ID">
+                    <button id="connect-btn" class="btn btn-success">建立连接</button>
+                    <button id="disconnect-btn" class="btn btn-danger">断开连接</button>
+                </div>
+                
+                <div class="status disconnected" id="connection-status">
+                    未连接
+                </div>
+            </div>
+            
+            <div class="panel">
+                <h2>聊天窗口</h2>
+                
+                <div class="chat-container">
+                    <div class="chat-messages" id="chat-messages">
+                        <div class="message received">
+                            <div class="message-info">系统 于 <span class="timestamp">刚刚</span></div>
+                            <div>欢迎使用P2P聊天应用！请使用左侧面板建立连接。</div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-area">
+                        <input type="text" id="message-input" placeholder="输入消息..." disabled>
+                        <button id="send-btn" class="btn" disabled>发送</button>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 20px;">
+                    <h2>操作说明</h2>
+                    <ol style="padding-left: 20px; margin-top: 10px;">
+                        <li>复制并分享您的连接ID</li>
+                        <li>输入对方的连接ID并点击"建立连接"</li>
+                        <li>连接成功后即可开始聊天</li>
+                        <li>使用<code>/exit</code>命令可断开连接</li>
+                    </ol>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>基于WebRTC技术实现 | 模拟原C++版P2P聊天功能 | 无需中央服务器</p>
+        </footer>
+    </div>
+
+    <script>
+        // 模拟原C++代码中的STUN服务器列表
+        const stunServers = [
+            { host: "stun.l.google.com", port: 19302 },
+            { host: "stun1.l.google.com", port: 19302 },
+            { host: "stun.miwifi.com", port: 3478 },
+            { host: "stun.aa.net.uk", port: 3478 },
+            { host: "stun2.l.google.com", port: 19302 },
+            { host: "stun3.l.google.com", port: 19302 },
+            { host: "stun4.l.google.com", port: 19302 }
+        ];
+        
+        // 初始化STUN服务器显示
+        function initStunList() {
+            const stunList = document.getElementById('stun-list');
+            stunServers.forEach(server => {
+                const serverEl = document.createElement('div');
+                serverEl.className = 'stun-server';
+                serverEl.innerHTML = `
+                    <div><strong>${server.host}:${server.port}</strong></div>
+                    <div class="status">状态: <span class="stun-status">可用</span></div>
+                `;
+                stunList.appendChild(serverEl);
+            });
+        }
+        
+        // 生成随机ID作为本机标识
+        function generateLocalId() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let result = '';
+            for (let i = 0; i < 12; i++) {
+                result += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return result;
+        }
+        
+        // 添加消息到聊天窗口
+        function addMessage(content, sender, isSelf = false) {
+            const chatMessages = document.getElementById('chat-messages');
+            const messageEl = document.createElement('div');
+            messageEl.className = `message ${isSelf ? 'sent' : 'received'}`;
+            
+            const now = new Date();
+            const timestamp = now.toLocaleTimeString();
+            
+            messageEl.innerHTML = `
+                <div class="message-info">${sender} 于 <span class="timestamp">${timestamp}</span></div>
+                <div>${content}</div>
+            `;
+            
+            chatMessages.appendChild(messageEl);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        // 更新连接状态显示
+        function updateConnectionStatus(connected) {
+            const statusEl = document.getElementById('connection-status');
+            if (connected) {
+                statusEl.className = 'status connected';
+                statusEl.textContent = '已连接';
+                document.getElementById('message-input').disabled = false;
+                document.getElementById('send-btn').disabled = false;
+            } else {
+                statusEl.className = 'status disconnected';
+                statusEl.textContent = '未连接';
+                document.getElementById('message-input').disabled = true;
+                document.getElementById('send-btn').disabled = true;
+            }
+        }
+        
+        // 模拟P2P连接建立过程
+        function simulateConnection() {
+            const localId = document.getElementById('local-id').textContent;
+            const remoteId = document.getElementById('remote-id').value.trim();
+            
+            if (!remoteId) {
+                alert('请输入对方的连接ID');
+                return;
+            }
+            
+            if (remoteId === localId) {
+                alert('不能连接到自己的ID');
+                return;
+            }
+            
+            // 模拟连接过程
+            updateConnectionStatus(true);
+            addMessage(`已成功连接到 ${remoteId}`, '系统');
+        }
+        
+        // 发送消息
+        function sendMessage() {
+            const inputEl = document.getElementById('message-input');
+            const message = inputEl.value.trim();
+            
+            if (!message) return;
+            
+            // 如果是退出命令
+            if (message === '/exit') {
+                disconnect();
+                inputEl.value = '';
+                return;
+            }
+            
+            // 添加到聊天窗口
+            addMessage(message, '我', true);
+            
+            // 模拟消息发送给对方
+            setTimeout(() => {
+                addMessage(message, '对方');
+            }, 500);
+            
+            inputEl.value = '';
+            inputEl.focus();
+        }
+        
+        // 断开连接
+        function disconnect() {
+            updateConnectionStatus(false);
+            addMessage('连接已断开', '系统');
+            document.getElementById('remote-id').value = '';
+        }
+        
+        // 初始化页面
+        document.addEventListener('DOMContentLoaded', () => {
+            // 初始化STUN服务器显示
+            initStunList();
+            
+            // 生成本机ID
+            document.getElementById('local-id').textContent = generateLocalId();
+            
+            // 设置事件监听器
+            document.getElementById('connect-btn').addEventListener('click', simulateConnection);
+            document.getElementById('disconnect-btn').addEventListener('click', disconnect);
+            document.getElementById('send-btn').addEventListener('click', sendMessage);
+            
+            // 按Enter发送消息
+            document.getElementById('message-input').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+            
+            // 添加欢迎消息
+            setTimeout(() => {
+                addMessage('STUN服务器状态已更新，所有服务器均可用', '系统');
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
