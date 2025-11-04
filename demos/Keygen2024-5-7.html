@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Keygen 2024-5-7 10:04</title>
+</head>
+<body>
+  <div>
+    Username: <input id="username" type="text">
+    <button id="genBtn">Generate password</button>
+    <button id="simulateBtn">Simulate check</button>
+  </div>
+
+  <div>
+    Generated password: <span id="password"></span><br>
+    Hex: <span id="passwordHex"></span>
+  </div>
+
+  <div>
+    Password: <input id="userPassword" type="text">
+  </div>
+
+  <div id="result"></div>
+
+  <script>
+    function xor4String(str) {
+      let out = "";
+      for (let i = 0; i < str.length; i++) {
+        out += String.fromCharCode((str.charCodeAt(i) ^ 4) & 0xFF);
+      }
+      return out;
+    }
+
+    function mutateLikeProgram(s, limit) {
+      const arr = Array.from(s, c => c.charCodeAt(0));
+      for (let j = 0; j < Math.min(limit, arr.length); j++) {
+        arr[j] = ((arr[j] - 2) & 0xFF) ^ 3;
+      }
+      return String.fromCharCode(...arr);
+    }
+
+    function toHexView(str) {
+      return Array.from(str, c => (c.charCodeAt(0) & 0xFF).toString(16).padStart(2,"0")).join(" ");
+    }
+
+    function generatePassword() {
+      const username = document.getElementById("username").value;
+      const pwd = xor4String(username);
+      document.getElementById("password").textContent = pwd;
+      document.getElementById("passwordHex").textContent = toHexView(pwd);
+      document.getElementById("userPassword").value = pwd;
+      document.getElementById("result").textContent = "";
+    }
+
+    function simulateProgram() {
+      const username = document.getElementById("username").value;
+      const inputPwd = document.getElementById("userPassword").value;
+      const v14_post = mutateLikeProgram(xor4String(username), username.length);
+      const v15_post = mutateLikeProgram(inputPwd, username.length);
+      const ok = v14_post === v15_post;
+      document.getElementById("result").innerHTML =
+        (ok ? "congratulation!" : "wrong! try again!") +
+        "<br>Pseudocode:<br>" +
+        "for i in [0..len-1]: v14[i] = username[i] ^ 4<br>" +
+        "for j in [0..len-1]: v14[j] = (v14[j]-2)^3; v15[j] = (password[j]-2)^3<br>" +
+        "if v14 == v15 then success";
+    }
+
+    document.getElementById("genBtn").onclick = generatePassword;
+    document.getElementById("simulateBtn").onclick = simulateProgram;
+  </script>
+</body>
+</html>
